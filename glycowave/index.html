@@ -5,6 +5,25 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>GlycoWave — 拍一餐，少一點下午昏沉</title>
 <meta name="description" content="給外食上班族的 AI 飲食助手。拍下或寫下今天這餐，快速看懂它為什麼讓你下午想睡、嘴饞，還有下一餐怎麼救回來。"/>
+
+<link rel="icon" href="./assets/appicon.png"/>
+<link rel="apple-touch-icon" href="./assets/appicon.png"/>
+<link rel="canonical" href="https://n239.xyz/glycowave/"/>
+
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="GlycoWave"/>
+<meta property="og:title" content="GlycoWave — 拍一餐，少一點下午昏沉"/>
+<meta property="og:description" content="給外食上班族的 AI 飲食助手。拍下或寫下今天這餐，看懂它為什麼讓你下午想睡、嘴饞，還有下一餐怎麼救回來。"/>
+<meta property="og:url" content="https://n239.xyz/glycowave/"/>
+<meta property="og:image" content="https://n239.xyz/glycowave/assets/og.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:locale" content="zh_TW"/>
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="GlycoWave — 拍一餐，少一點下午昏沉"/>
+<meta name="twitter:description" content="給外食上班族的 AI 飲食助手。看懂這餐怎麼影響你的下午，還有下一餐怎麼救回來。"/>
+<meta name="twitter:image" content="https://n239.xyz/glycowave/assets/og.jpg"/>
 <style>
   :root {
     --ink: #0A0A0A;
@@ -50,6 +69,9 @@
   }
   .pill:hover { background: var(--pill-hover); }
   .pill.ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+  /* 尚無 App Store 連結前：外觀一致但不可點，避免死連結跳回頁首 */
+  .pill-soon { cursor: default; }
+  .pill-soon:hover { background: var(--ink); }
   .pill.ghost:hover { background: #F6F6F6; }
   nav .pill { padding: 11px 24px; font-size: 14px; }
 
@@ -416,7 +438,7 @@
     <img class="appicon" src="./assets/appicon.png" alt="GlycoWave app icon"/>
     <h2><span class="nb">先從看懂</span><span class="nb">今天這餐</span><span class="nb">開始。</span></h2>
     <p class="sec-lede" style="margin-bottom:40px;">不用一次改變很多。</p>
-    <a class="pill" href="#" aria-disabled="true">App Store 即將上線</a>
+    <span class="pill pill-soon" role="text">App Store 即將上線</span>
   </div>
 </section>
 
