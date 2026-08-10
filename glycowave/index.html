@@ -244,6 +244,84 @@
   .lang span { color: var(--line); }
   hr.rule { border: 0; border-top: 1px solid var(--line); margin: 0; }
 
+  /* ══ 動畫 ══
+     只動 opacity / transform，避免觸發 layout 重算。
+     所有效果都在 prefers-reduced-motion 下關閉（見檔案末段）。 */
+
+  /* 捲動進場：元素進視窗才淡入上移 */
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity .75s cubic-bezier(.22,.7,.3,1), transform .75s cubic-bezier(.22,.7,.3,1);
+    transition-delay: var(--d, 0ms);
+    will-change: opacity, transform;
+  }
+  .reveal.in { opacity: 1; transform: none; }
+  .reveal.in.done { will-change: auto; }
+
+  /* Hero 載入即播，依序錯開 */
+  @keyframes riseIn { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+  .hero-copy-anim > * { animation: riseIn .85s cubic-bezier(.22,.7,.3,1) backwards; }
+  .hero-copy-anim > h1        { animation-delay: .05s; }
+  .hero-copy-anim > .lede     { animation-delay: .16s; }
+  .hero-copy-anim > .cta-row  { animation-delay: .27s; }
+
+  /* 手機：淡入 + 微幅上浮，之後極慢地呼吸。
+     位移走 translate（獨立屬性），傾斜與桌面偏移留給 transform，
+     兩者互不覆蓋，動畫結束時才不會突然跳位。 */
+  @keyframes phoneIn { from { opacity: 0; translate: 0 28px; } to { opacity: 1; translate: 0 0; } }
+  @keyframes float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -10px; } }
+  .phone { animation: phoneIn .95s cubic-bezier(.22,.7,.3,1) .18s backwards; }
+  .phone.floating { animation: float 7s ease-in-out infinite; }
+
+  /* 進度條：從左長出來。
+     hero 那條用 keyframes（不依賴 JS），區塊內那條跟著 .reveal 走。 */
+  @keyframes fillIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  .s-fill { transform-origin: left center; }
+  .phone .s-fill { animation: fillIn 1.1s cubic-bezier(.22,.7,.3,1) .7s backwards; }
+  .reveal .s-fill { transform: scaleX(0); transition: transform 1.1s cubic-bezier(.22,.7,.3,1) .25s; }
+  .reveal.in .s-fill { transform: scaleX(1); }
+
+  /* 步數圓環：@property 讓 conic-gradient 可以補間。
+     不支援的瀏覽器會直接停在 71%（下面宣告的初始值），不會破圖。 */
+  @property --ring-p { syntax: '<percentage>'; inherits: false; initial-value: 71%; }
+  .ring { --ring-p: 71%; background: conic-gradient(var(--ink) 0 var(--ring-p), #E8E8E8 var(--ring-p) 100%); }
+  @keyframes ringFill { from { --ring-p: 0%; } to { --ring-p: 71%; } }
+  .reveal.in .ring { animation: ringFill 1.3s cubic-bezier(.22,.7,.3,1) .2s backwards; }
+
+  /* 長條圖：由下往上長，逐根錯開。
+     縮到 0 的狀態掛在 .reveal 底下（由 JS 加），沒有 JS 時長條維持原高度。 */
+  .bars i { transform-origin: bottom center; }
+  .reveal .bars i { transform: scaleY(0); transition: transform .7s cubic-bezier(.22,.7,.3,1); }
+  .reveal.in .bars i { transform: scaleY(1); }
+  .bars i:nth-child(1){transition-delay:.10s} .bars i:nth-child(2){transition-delay:.16s}
+  .bars i:nth-child(3){transition-delay:.22s} .bars i:nth-child(4){transition-delay:.28s}
+  .bars i:nth-child(5){transition-delay:.34s} .bars i:nth-child(6){transition-delay:.40s}
+  .bars i:nth-child(7){transition-delay:.46s}
+
+  /* 卡片與按鈕的手感 */
+  .card, .ui-frame, .shot { transition: transform .35s cubic-bezier(.22,.7,.3,1), box-shadow .35s cubic-bezier(.22,.7,.3,1); }
+  @media (hover: hover) {
+    .card:hover, .ui-frame:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.07); }
+    .shot:hover { transform: translateY(-4px); box-shadow: 0 14px 36px rgba(0,0,0,.09); }
+    .shot img { transition: transform .6s cubic-bezier(.22,.7,.3,1); }
+    .shot:hover img { transform: scale(1.04); }
+  }
+  .pill { transition: background .18s ease, transform .18s cubic-bezier(.22,.7,.3,1); }
+  @media (hover: hover) { .pill:not(.pill-soon):hover { transform: translateY(-2px); } }
+  .pill:not(.pill-soon):active { transform: translateY(0) scale(.98); }
+
+  /* 系統設定要求減少動態時，全部關閉 */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: .001ms !important; animation-iteration-count: 1 !important;
+      transition-duration: .001ms !important; scroll-behavior: auto !important;
+    }
+    .reveal { opacity: 1; transform: none; }
+    .reveal .s-fill, .phone .s-fill { transform: scaleX(1); }
+    .reveal .bars i { transform: scaleY(1); }
+  }
+
   /* ── 手機版垂直節奏 ──
      桌面的 90–130px 區塊留白在 375px 螢幕上會讓整頁長到 9000px 以上，
      滑動時大半是空白。這裡把間距與卡片內距收斂到適合單手滑的比例。 */
@@ -286,7 +364,7 @@
 
 <header class="hero">
   <div class="wrap hero-grid">
-    <div>
+    <div class="hero-copy-anim">
       <h1>拍一餐，<br/><span class="nb">少一點</span><span class="nb">下午昏沉。</span></h1>
       <p class="lede">給外食上班族的 AI 飲食助手。拍下或寫下今天這餐，快速看懂它和你下午狀態的關係——為什麼想睡、為什麼嘴饞，還有下一餐怎麼救回來。</p>
       <div class="cta-row">
@@ -489,5 +567,68 @@
   </footer>
 </div>
 
+<script>
+(function () {
+  // 手機進場結束後才接上慢速浮動，避免兩段動畫打架
+  var phone = document.querySelector('.phone');
+  if (phone) {
+    phone.addEventListener('animationend', function () {
+      phone.classList.add('floating');
+    }, { once: true });
+  }
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  // 進場 class 一律由 JS 掛上：關閉 JS 時內容照樣看得到，
+  // 不會被 opacity:0 永久藏住。
+  var items = [];
+  document.querySelectorAll('section').forEach(function (sec) {
+    sec.querySelectorAll('h2, .sec-lede, .statement p, .disclaimer, .appicon, .final .pill')
+       .forEach(function (el) { items.push([el, 0]); });
+    sec.querySelectorAll('.grid > .card, .ui-grid > .ui-frame, .photo-strip > .shot')
+       .forEach(function (el, i) { items.push([el, 70 + i * 80]); });
+  });
+  if (!items.length) return;
+
+  items.forEach(function (p) {
+    p[0].classList.add('reveal');
+    if (p[1]) p[0].style.setProperty('--d', p[1] + 'ms');
+  });
+
+  var pending = items.map(function (p) { return p[0]; });
+
+  function revealAll() {
+    pending.forEach(function (el) { el.classList.add('in'); });
+    pending = [];
+  }
+
+  function check() {
+    if (!pending.length) return;
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    pending = pending.filter(function (el) {
+      var r = el.getBoundingClientRect();
+      // 元素頂端進入視窗下緣 12% 以內就開始播
+      if (r.top < vh * 0.88 && r.bottom > 0) { el.classList.add('in'); return false; }
+      return true;
+    });
+    if (!pending.length) window.removeEventListener('scroll', onScroll);
+  }
+
+  var ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () { ticking = false; check(); });
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  check();
+
+  // 保險：不論上面出了什麼狀況，5 秒後一定把內容顯示出來。
+  // 動畫可以不播，內容不能看不到。
+  setTimeout(revealAll, 5000);
+})();
+</script>
 </body>
 </html>
