@@ -119,6 +119,9 @@
     padding: 14px 16px; margin-bottom: 10px;
   }
   .s-card .s-label { font-size: 10px; letter-spacing: 1.2px; font-weight: 700; color: var(--ink-mute); text-transform: uppercase; margin-bottom: 4px; }
+  /* 辨識出的食材：對應 app 的 identified_items，讓人先確認 AI 沒看錯菜 */
+  .s-items { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 7px; }
+  .s-items span { font-size: 11px; font-weight: 600; background: #F1F1F1; color: var(--ink-soft); padding: 3px 8px; border-radius: 999px; }
   .s-card .s-big { font-size: 15px; font-weight: 700; line-height: 1.4; }
   .s-bar { height: 6px; border-radius: 99px; background: #EEE; margin-top: 10px; overflow: hidden; }
   .s-fill { height: 100%; width: 66%; border-radius: 99px; background: var(--ink); }
@@ -370,7 +373,7 @@
       <div class="cta-row">
         <a class="pill" href="#download">App Store 即將上線</a>
         <a class="pill ghost" href="#how">看看怎麼用</a>
-        <span class="cta-note">免費下載 · 不用戴儀器 · 不用算熱量</span>
+        <span class="cta-note">免費下載 · 不用戴儀器 · 不用算熱量<br/>免費版每天可分析 3 餐、保留 3 天紀錄；Pro 解除上限，含 3 天免費試用。</span>
       </div>
     </div>
     <div class="phone-zone">
@@ -379,12 +382,17 @@
           <img src="./assets/bento.jpg" alt=""/>
           <div class="screen-body">
             <div class="s-card">
-              <div class="s-label">餐後預測</div>
+              <div class="s-label">辨識到的食材</div>
+              <div class="s-big">排骨便當</div>
+              <div class="s-items"><span>白飯</span><span>炸排骨</span><span>滷蛋</span><span>燙青菜</span><span>酸菜</span></div>
+            </div>
+            <div class="s-card">
+              <div class="s-label">身體感受提醒</div>
               <div class="s-big">下午可能偏昏沉</div>
               <div class="s-bar"><div class="s-fill"></div></div>
             </div>
             <div class="s-card dark">
-              <div class="s-label">下一餐建議</div>
+              <div class="s-label">補償微行動</div>
               <div class="s-big">晚餐先吃蛋白質，飯量減三分之一，飯後散步十分鐘。</div>
             </div>
           </div>
@@ -471,15 +479,19 @@
       <div class="ui-frame">
         <div class="ui-title">餐點分析</div>
         <div class="s-card">
-          <div class="s-label">餐後預測</div>
+          <div class="s-label">辨識到的食材</div>
+          <div class="s-items"><span>白飯</span><span>炸排骨</span><span>滷蛋</span><span>燙青菜</span></div>
+        </div>
+        <div class="s-card">
+          <div class="s-label">身體感受提醒</div>
           <div class="s-big">下午可能偏昏沉</div>
           <div class="s-bar"><div class="s-fill"></div></div>
         </div>
         <div class="s-card dark">
-          <div class="s-label">下一餐建議</div>
+          <div class="s-label">補償微行動</div>
           <div class="s-big">晚餐先吃蛋白質，飯量減三分之一。</div>
         </div>
-        <div class="ui-caption">拍完十秒出結果<span>風險、營養比例、感受預測</span></div>
+        <div class="ui-caption">先確認有沒有看錯菜<span>再看風險、營養比例與感受提醒</span></div>
       </div>
       <div class="ui-frame">
         <div class="ui-title">飯後散步</div>
@@ -494,7 +506,7 @@
           <i style="height:52%"></i><i style="height:78%" class="hi"></i><i style="height:40%"></i><i style="height:64%" class="hi"></i><i style="height:88%"></i><i style="height:58%" class="hi"></i><i style="height:34%"></i>
         </div>
         <div class="bars-labels"><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span></div>
-        <div class="ui-caption">看見自己的節奏<span>哪幾天穩、哪幾天累，一目瞭然</span></div>
+        <div class="ui-caption">看見自己的節奏<span>連續天數、穩定餐數與活動趨勢</span></div>
       </div>
     </div>
   </div>
@@ -533,7 +545,12 @@
       <div class="card">
         <div class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18M5 16l4-5 3.5 3L19 7"/></svg></div>
         <h3>趨勢與節奏</h3>
-        <p>一週的模式攤開看：哪些組合讓你穩、哪些讓你累，慢慢找到自己的飲食節奏。</p>
+        <p>連續天數、穩定餐數、活動趨勢。一週的模式攤開看，慢慢找到自己的飲食節奏。</p>
+      </div>
+      <div class="card">
+        <div class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11M8.5 10.5 12 14l3.5-3.5M4 17v2.5A1.5 1.5 0 0 0 5.5 21h13a1.5 1.5 0 0 0 1.5-1.5V17"/></svg></div>
+        <h3>資料帶得走</h3>
+        <p>餐點紀錄可匯出成 PDF 月報或 CSV。資料存在你的裝置上，不做帳號同步。</p>
       </div>
     </div>
   </div>
