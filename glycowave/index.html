@@ -52,11 +52,16 @@
     display: flex; align-items: center; justify-content: space-between;
     padding: 28px 0;
   }
-  .logo { font-weight: 800; font-size: 21px; letter-spacing: -0.4px; text-decoration: none; }
+  .logo { font-weight: 800; font-size: 21px; letter-spacing: -0.4px; text-decoration: none; display: inline-flex; align-items: center; min-height: 44px; }
   .logo sup { font-weight: 400; font-size: 11px; color: var(--ink-mute); letter-spacing: 0; margin-left: 4px; }
   nav .links { display: flex; gap: 32px; font-size: 15px; font-weight: 600; align-items: center; }
   nav .links a { text-decoration: none; white-space: nowrap; }
-  @media (max-width: 640px) { nav .links a:not(.pill) { display: none; } }
+  /* 手機版導覽列只留 logo + 語言切換。章節連結和 CTA 都藏起來：
+     CTA 在 hero 第一屏就有一顆，導覽列再放一顆會擠爆 375px 寬度。 */
+  @media (max-width: 640px) {
+    nav .links > a { display: none; }
+    nav .links { gap: 14px; }
+  }
   nav .links a:hover { opacity: 0.6; }
   .pill {
     display: inline-flex; align-items: center; justify-content: center; gap: 8px;
@@ -229,10 +234,39 @@
     font-size: 14px; color: var(--ink-mute);
     display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: center; justify-content: space-between;
   }
-  footer .f-links { display: flex; gap: 24px; }
-  footer a { color: var(--ink-soft); text-decoration: none; font-weight: 500; }
+  footer .f-links { display: flex; gap: 8px; flex-wrap: wrap; margin-left: -12px; }
+  /* 12px 上下內距讓點擊區達到 44px，符合 iOS 最小觸控目標 */
+  footer a { color: var(--ink-soft); text-decoration: none; font-weight: 500; padding: 12px; display: inline-block; }
   footer a:hover { opacity: 0.6; }
+  .lang { display: flex; gap: 6px; align-items: center; font-size: 14px; }
+  .lang a { text-decoration: none; color: var(--ink-mute); font-weight: 600; padding: 12px 6px; display: inline-flex; align-items: center; min-height: 44px; }
+  .lang a[aria-current="page"] { color: var(--ink); }
+  .lang span { color: var(--line); }
   hr.rule { border: 0; border-top: 1px solid var(--line); margin: 0; }
+
+  /* ── 手機版垂直節奏 ──
+     桌面的 90–130px 區塊留白在 375px 螢幕上會讓整頁長到 9000px 以上，
+     滑動時大半是空白。這裡把間距與卡片內距收斂到適合單手滑的比例。 */
+  @media (max-width: 640px) {
+    section { padding: 52px 0; }
+    section.tight { padding: 28px 0; }
+    .hero { padding: 40px 0 64px; }
+    .statement { padding: 64px 0; }
+    .final { padding: 72px 0 88px; }
+    .sec-lede { margin-bottom: 32px; font-size: 16px; }
+    .lede { font-size: 17px; margin-bottom: 32px; }
+    h1 { margin-bottom: 26px; }
+    h2 { margin-bottom: 14px; }
+    .card { padding: 26px 22px; }
+    .card h3 { font-size: 21px; }
+    .chip { width: 46px; height: 46px; border-radius: 12px; margin-bottom: 18px; }
+    .grid, .ui-grid, .photo-strip { gap: 14px; }
+    .shot img { height: 240px; }
+    .ui-frame { padding: 20px 16px; }
+    .disclaimer { padding: 22px 20px; }
+    .hero-grid { gap: 40px; }
+    footer { padding: 24px 0 40px; }
+  }
 </style>
 </head>
 <body>
@@ -243,6 +277,7 @@
     <div class="links">
       <a href="#how">怎麼用</a>
       <a href="#features">功能</a>
+      <span class="lang"><a href="./" aria-current="page">中</a><span>/</span><a href="./en/">EN</a></span>
       <a class="pill" href="#download">App Store 即將上線</a>
     </div>
   </nav>
