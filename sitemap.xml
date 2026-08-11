@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://n239.xyz/</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://n239.xyz/glycowave/</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://n239.xyz/glycowave/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://n239.xyz/glycowave/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://n239.xyz/glycowave/"/>
+  </url>
+
+  <url>
+    <loc>https://n239.xyz/glycowave/no-cgm/</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://n239.xyz/glycowave/blog/</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://n239.xyz/glycowave/en/</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://n239.xyz/glycowave/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://n239.xyz/glycowave/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://n239.xyz/glycowave/"/>
+  </url>
+
+  <url>
+    <loc>https://n239.xyz/glycowave/privacy.html</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://n239.xyz/glycowave/terms.html</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://n239.xyz/glycowave/blog/luroufan-vs-jiroufan/</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://n239.xyz/glycowave/blog/niuroumian-vs-ramen/</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://n239.xyz/glycowave/blog/shuijiao-vs-guotie/</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://n239.xyz/glycowave/blog/baifan-vs-caomifan/</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://n239.xyz/glycowave/blog/zhenzhu-naicha-vs-cha/</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://n239.xyz/glycowave/blog/fantuan-vs-sandwich/</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>

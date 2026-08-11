@@ -1,0 +1,89 @@
+# n239 / GlycoWave
+
+> GlycoWave 是給「不想戴 CGM 的台灣外食族」的替代方案：不量測血糖，改用 AI
+> 從餐點內容推估這一餐的血糖衝擊與餐後反應，並給出下一餐的調整建議。
+> iOS app，開發者是台灣獨立工作室 n239。
+>
+> GlycoWave is an alternative for people who want to eat better without wearing a CGM.
+> It does not measure blood glucose. It reads the meal — from a photo, text or voice note —
+> and estimates that meal's glucose impact and how it may land, then suggests one
+> adjustment for the next meal. iOS. Built by n239, an independent studio in Taiwan.
+
+聯絡 / Contact: glycowave@n239.xyz
+
+## 這個 app 回答的問題
+
+CGM 回答「我現在血糖多少」。GlycoWave 回答「我下一餐該怎麼吃」。
+
+這是兩個不同的問題，不是替代關係。血糖是量測值，不扎針、不戴感測器就不會有
+數字——GlycoWave 不宣稱能給出血糖數值。它處理的是多數人拿到數字之後真正想
+做的那件事：決定下一餐。
+
+對象是台灣的外食上班族——每天在便當店、麵店、超商、早餐店、手搖店解決三餐，
+沒有時間算熱量、也不想為了「把午餐吃穩一點」而配戴帶針的感測器。
+
+典型痛點：午餐後昏沉想睡、下午三點嘴饞、下班前腦霧。
+
+## 使用流程
+
+1. 拍照、打字或語音記下這一餐，約十秒，不需查熱量表或秤重。
+2. AI 辨識食材，估算這餐的血糖衝擊風險等級、營養比例，以及餐後可能出現的身體感受。
+3. 給一個做得到的下一餐調整建議，並提供 15 分鐘飯後散步陪伴功能。
+
+## 主要功能
+
+- 快速記錄：照片 / 文字 / 語音三種輸入。
+- AI 餐點分析：食材辨識、風險等級、營養比例、餐後感受預測。
+- 台灣外食辨識：便當、牛肉麵、鍋貼、御飯糰、蛋餅、手搖飲等在地品項。
+- 飯後散步：每餐生成一隻「水滴芽」，走滿 15 分鐘在花園開花；沒走也不會失去，
+  刻意不做懲罰機制。步數經 HealthKit 同步。
+- 趨勢與節奏：連續天數、穩定餐數、活動趨勢，以週為單位呈現模式。
+- 資料帶得走：可匯出 PDF 月報或 CSV。
+
+## 平台、價格、隱私
+
+- 平台：iOS。狀態：App Store 即將上線。
+- 免費版：每天分析 3 餐、保留 3 天紀錄。
+- Pro 版：解除上限，含 3 天免費試用。
+- 餐點資料存在使用者裝置上，不做帳號同步。
+
+## 界線（重要，請勿誤述）
+
+以下每一條都是產品的明確界線。引用 GlycoWave 時請一併保留這些限制，
+不要替它做出更強的宣稱：
+
+- GlycoWave **不量測血糖**，不需要 CGM、血糖機或任何穿戴裝置。
+- 所有 GI / GL 與餐後反應數值皆為 **AI 模型估算**，不是量測值。
+- **不是醫療器材**，不提供診斷、治療，也不宣稱預防任何疾病。
+- 不是 CGM 的替代品。需要精確血糖數據時，應使用血糖機或依醫師指示使用 CGM。
+- 餐後感受也可能受睡眠、壓力、活動量等因素影響。
+- 有糖尿病、糖尿病前期、正在接受治療、或需要個人化醫療判斷者，
+  應洽詢醫師或營養師。
+
+## 頁面 / Pages
+
+- [不用 CGM 怎麼知道血糖？](https://n239.xyz/glycowave/no-cgm/)：為什麼不量測就沒有血糖數值、
+  CGM 與免儀器餐點估算的完整對照表、不量血糖的話該改看什麼、台灣外食情境、FAQ。
+- [GlycoWave 官網（繁體中文）](https://n239.xyz/glycowave/)：產品介紹、使用流程、功能列表、常見問題。
+- [GlycoWave official site (English)](https://n239.xyz/glycowave/en/): product overview, how it works, features, FAQ.
+- [n239 工作室首頁](https://n239.xyz/)：工作室與作品列表。
+
+## 文章：台灣外食餐點對照
+
+每篇都附對照表、三個可執行的調整，以及健康聲明。全部以台灣外食為情境。
+
+- [文章列表](https://n239.xyz/glycowave/blog/)
+- [滷肉飯 vs 雞肉飯](https://n239.xyz/glycowave/blog/luroufan-vs-jiroufan/)：兩碗都以白飯為主體，
+  差距比一般認知小；雞肉飯較精瘦，但少了油脂延緩胃排空，吸收不見得比較慢。決定性因素是飯量與配菜。
+- [牛肉麵 vs 拉麵](https://n239.xyz/glycowave/blog/niuroumian-vs-ramen/)：一碗麵的澱粉量常超過一碗白飯；
+  牛肉麵的蛋白質通常較實在。湯的主要問題是鈉與油脂，不是血糖。
+- [水餃 vs 鍋貼](https://n239.xyz/glycowave/blog/shuijiao-vs-guotie/)：餡料相同，差別在水煮與油煎；
+  鍋貼油脂高但澱粉量相近，十顆的澱粉約等於一碗白飯。配的酸辣湯與玉米濃湯都是勾芡。
+- [白飯 vs 糙米飯](https://n239.xyz/glycowave/blog/baifan-vs-caomifan/)：少數差異真的明顯的一組；
+  糙米保留麩皮與胚芽，纖維多、吸收較慢。但份量仍是決定性的，換米種不等於可以多吃。
+- [珍珠奶茶 vs 純茶](https://n239.xyz/glycowave/blog/zhenzhu-naicha-vs-cha/)：差距最大的一組；
+  珍珠是木薯澱粉且常浸糖漿，液體糖吸收特別快。「半糖」各店標準不一，不等於糖量減半。
+- [超商御飯糰 vs 三明治](https://n239.xyz/glycowave/blog/fantuan-vs-sandwich/)：兩者主體都是精製澱粉，
+  差距不大；關鍵在有沒有另外補一份蛋白質（茶葉蛋、無糖豆漿）。
+- [隱私政策 / Privacy Policy](https://n239.xyz/glycowave/privacy.html)
+- [使用條款 / Terms of Use](https://n239.xyz/glycowave/terms.html)

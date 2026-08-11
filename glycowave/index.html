@@ -11,6 +11,9 @@
 <link rel="canonical" href="https://n239.xyz/glycowave/"/>
 <link rel="alternate" hreflang="zh-Hant" href="https://n239.xyz/glycowave/"/>
 <link rel="alternate" hreflang="en" href="https://n239.xyz/glycowave/en/"/>
+<link rel="alternate" hreflang="x-default" href="https://n239.xyz/glycowave/"/>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1"/>
+<meta name="theme-color" content="#0A0A0A"/>
 
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="GlycoWave"/>
@@ -20,12 +23,129 @@
 <meta property="og:image" content="https://n239.xyz/glycowave/assets/og.jpg"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="GlycoWave — 給外食族的 AI 飲食助手"/>
 <meta property="og:locale" content="zh_TW"/>
+<meta property="og:locale:alternate" content="en_US"/>
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="GlycoWave — 拍一餐，少一點下午昏沉"/>
 <meta name="twitter:description" content="給外食上班族的 AI 飲食助手。看懂這餐怎麼影響你的下午，還有下一餐怎麼救回來。"/>
 <meta name="twitter:image" content="https://n239.xyz/glycowave/assets/og.jpg"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MobileApplication",
+      "@id": "https://n239.xyz/glycowave/#app",
+      "name": "GlycoWave",
+      "alternateName": "GlycoWave 飲食助手",
+      "url": "https://n239.xyz/glycowave/",
+      "image": "https://n239.xyz/glycowave/assets/appicon.png",
+      "applicationCategory": "HealthApplication",
+      "applicationSubCategory": "飲食紀錄",
+      "operatingSystem": "iOS",
+      "inLanguage": ["zh-Hant", "en"],
+      "description": "給外食上班族的 AI 飲食助手。拍下或寫下今天這餐，看懂它為什麼讓你下午想睡、嘴饞，還有下一餐怎麼救回來。不用戴儀器，不用算熱量。",
+      "featureList": [
+        "拍照、文字或語音快速記錄外食",
+        "AI 餐點分析：食材辨識、風險等級、營養比例、餐後感受預測",
+        "下一餐的具體調整建議",
+        "15 分鐘飯後散步陪伴，步數經 HealthKit 同步",
+        "一週趨勢與飲食節奏回顧",
+        "匯出 PDF 月報與 CSV"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "TWD",
+        "description": "免費版每天可分析 3 餐、保留 3 天紀錄；Pro 解除上限，含 3 天免費試用。"
+      },
+      "publisher": { "@id": "https://n239.xyz/#org" },
+      "disclaimer": "所有 GI/GL 與餐後反應均為 AI 模型估算，並非血糖測量、診斷或醫療建議。"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "n239", "item": "https://n239.xyz/" },
+        { "@type": "ListItem", "position": 2, "name": "GlycoWave", "item": "https://n239.xyz/glycowave/" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://n239.xyz/glycowave/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "GlycoWave 需要戴血糖機或 CGM 嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不需要。GlycoWave 不測量血糖，也不需要任何穿戴儀器。你只要拍下或寫下這一餐，AI 會依照餐點組合估算血糖衝擊的風險等級與餐後可能的身體感受。所有數值都是估算，不是血糖測量值。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "為什麼吃完午餐就一直想睡？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "餐後昏沉常和餐點組合有關——精緻澱粉比例高、蛋白質和纖維偏少的一餐，容易讓餐後兩小時特別想睡、三點左右嘴饞。睡眠不足、壓力和活動量也會影響。GlycoWave 的做法是把你自己的紀錄攤開來看，找出哪些午餐讓你穩穩撐到下班、哪些讓你三點就陣亡。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "外食族、天天吃便當也能用嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "GlycoWave 就是為外食族做的。便當、麵店、鍋貼、超商、手搖飲都能辨識，不用查熱量表、不用秤重、不用自己準備餐點。記一餐大約十秒。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "要算熱量嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不用。GlycoWave 不要求你輸入克數或查熱量表。它給的是這餐的風險等級、營養比例、餐後感受預測，以及一個下一餐做得到的調整建議。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "GlycoWave 免費嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "免費下載。免費版每天可分析 3 餐、保留 3 天紀錄。Pro 版解除這兩項上限，並含 3 天免費試用。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "我的餐點資料會被上傳嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "餐點紀錄存在你自己的裝置上，不做帳號同步。你可以隨時匯出成 PDF 月報或 CSV 帶走。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "糖尿病患者可以用 GlycoWave 嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "GlycoWave 是飲食紀錄工具，不是醫療器材，也不能取代血糖測量或醫囑。所有 GI/GL 與餐後反應都是 AI 估算值。若你有糖尿病、正在接受治療，或需要個人化的醫療判斷，請洽詢合格醫療專業人員。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "飯後散步功能是做什麼的？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "每記一餐會生成一隻「水滴芽」，走滿 15 分鐘就在花園開花，步數經 HealthKit 自動同步。沒走也不會失去它——刻意不設懲罰機制與等級壓力。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 <style>
   :root {
     --ink: #0A0A0A;
@@ -360,6 +480,8 @@
     <div class="links">
       <a href="#how">怎麼用</a>
       <a href="#features">功能</a>
+      <a href="#faq">常見問題</a>
+      <a href="./blog/">文章</a>
       <span class="lang"><a href="./" aria-current="page">中</a><span>/</span><a href="./en/">EN</a></span>
       <a class="pill" href="#download">App Store 即將上線</a>
     </div>
@@ -374,7 +496,7 @@
       <div class="cta-row">
         <a class="pill" href="#download">App Store 即將上線</a>
         <a class="pill ghost" href="#how">看看怎麼用</a>
-        <span class="cta-note">免費下載 · 不用戴儀器 · 不用算熱量<br/>免費版每天可分析 3 餐、保留 3 天紀錄；Pro 解除上限，含 3 天免費試用。</span>
+        <span class="cta-note">免費下載 · <a href="./no-cgm/">不用戴儀器</a> · 不用算熱量<br/>免費版每天可分析 3 餐、保留 3 天紀錄；Pro 解除上限，含 3 天免費試用。</span>
       </div>
     </div>
     <div class="phone-zone">
@@ -554,6 +676,50 @@
         <p>餐點紀錄可匯出成 PDF 月報或 CSV。資料存在你的裝置上，不做帳號同步。</p>
       </div>
     </div>
+  </div>
+</section>
+
+<div class="wrap"><hr class="rule"/></div>
+
+<section id="faq">
+  <div class="wrap">
+    <h2><span class="nb">常見問題</span></h2>
+    <p class="sec-lede">關於不用儀器怎麼看懂一餐、外食族怎麼用，以及 GlycoWave 不做什麼。</p>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3>GlycoWave 需要戴血糖機或 CGM 嗎？</h3>
+        <p>不需要。GlycoWave 不測量血糖，也不需要任何穿戴儀器。你只要拍下或寫下這一餐，AI 會依照餐點組合估算血糖衝擊的風險等級與餐後可能的身體感受。所有數值都是估算，不是血糖測量值。</p>
+      </div>
+      <div class="card">
+        <h3>為什麼吃完午餐就一直想睡？</h3>
+        <p>餐後昏沉常和餐點組合有關——精緻澱粉比例高、蛋白質和纖維偏少的一餐，容易讓餐後兩小時特別想睡、三點左右嘴饞。睡眠不足、壓力和活動量也會影響。GlycoWave 的做法是把你自己的紀錄攤開來看，找出哪些午餐讓你穩穩撐到下班、哪些讓你三點就陣亡。</p>
+      </div>
+      <div class="card">
+        <h3>外食族、天天吃便當也能用嗎？</h3>
+        <p>GlycoWave 就是為外食族做的。便當、麵店、鍋貼、超商、手搖飲都能辨識，不用查熱量表、不用秤重、不用自己準備餐點。記一餐大約十秒。</p>
+      </div>
+      <div class="card">
+        <h3>要算熱量嗎？</h3>
+        <p>不用。GlycoWave 不要求你輸入克數或查熱量表。它給的是這餐的風險等級、營養比例、餐後感受預測，以及一個下一餐做得到的調整建議。</p>
+      </div>
+      <div class="card">
+        <h3>GlycoWave 免費嗎？</h3>
+        <p>免費下載。免費版每天可分析 3 餐、保留 3 天紀錄。Pro 版解除這兩項上限，並含 3 天免費試用。</p>
+      </div>
+      <div class="card">
+        <h3>我的餐點資料會被上傳嗎？</h3>
+        <p>餐點紀錄存在你自己的裝置上，不做帳號同步。你可以隨時匯出成 PDF 月報或 CSV 帶走。</p>
+      </div>
+      <div class="card">
+        <h3>糖尿病患者可以用 GlycoWave 嗎？</h3>
+        <p>GlycoWave 是飲食紀錄工具，不是醫療器材，也不能取代血糖測量或醫囑。所有 GI/GL 與餐後反應都是 AI 估算值。若你有糖尿病、正在接受治療，或需要個人化的醫療判斷，請洽詢合格醫療專業人員。</p>
+      </div>
+      <div class="card">
+        <h3>飯後散步功能是做什麼的？</h3>
+        <p>每記一餐會生成一隻「水滴芽」，走滿 15 分鐘就在花園開花，步數經 HealthKit 自動同步。沒走也不會失去它——刻意不設懲罰機制與等級壓力。</p>
+      </div>
+    </div>
+    <p class="sec-lede" style="margin-top:32px;">延伸閱讀：<a href="./no-cgm/">不用 CGM 怎麼知道血糖？</a>——為什麼不量測就沒有數值，以及你其實該改看什麼。<br/>或看<a href="./blog/">台灣外食的餐點對照</a>：滷肉飯與雞肉飯、牛肉麵與拉麵、水餃與鍋貼，哪個血糖衝比較兇。</p>
   </div>
 </section>
 
