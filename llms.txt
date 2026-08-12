@@ -85,5 +85,20 @@ CGM 回答「我現在血糖多少」。GlycoWave 回答「我下一餐該怎麼
   珍珠是木薯澱粉且常浸糖漿，液體糖吸收特別快。「半糖」各店標準不一，不等於糖量減半。
 - [超商御飯糰 vs 三明治](https://n239.xyz/glycowave/blog/fantuan-vs-sandwich/)：兩者主體都是精製澱粉，
   差距不大；關鍵在有沒有另外補一份蛋白質（茶葉蛋、無糖豆漿）。
+
+## 文章：台灣外食場景
+
+- [便當怎麼吃血糖比較穩](https://n239.xyz/glycowave/blog/biandang-zenme-chi/)：一個便當的飯常是一碗半到兩碗，
+  飯量的影響大於主菜選擇；裹粉與糖醋醬是隱形澱粉；配菜格的炒麵、玉米、薯泥都是澱粉不是蔬菜。
+- [超商可以買什麼](https://n239.xyz/glycowave/blog/chaoshang-kongtang/)：原則是一份主食加一份蛋白質加無糖飲料。
+  地瓜玉米南瓜屬澱粉不是蔬菜；關東煮的米血、甜不辣、黑輪也是澱粉。
+- [手搖飲怎麼點](https://n239.xyz/glycowave/blog/shouyao-zenme-dian/)：照糖度、配料、基底的順序調，一次一項。
+  半糖各店基準不同，不等於糖量減半；珍珠、芋圓、布丁是澱粉或糖，寒天仙草愛玉較低。
+- [台式早餐店怎麼點](https://n239.xyz/glycowave/blog/zaocandian-zenme-dian/)：經典組合多為澱粉配糖水。
+  米漿是米加糖加花生的澱粉類甜飲，不是豆漿的同類；燒餅油條是麵粉夾油炸麵粉。
+- [自助餐怎麼夾](https://n239.xyz/glycowave/blog/zizhucan-jiacai/)：最可控的外食場景。
+  最大失誤是把炒麵、玉米、薯泥、芋頭當成蔬菜；順序是先夾滿蔬菜、再蛋白質、飯最後減量。
+- [夜市怎麼吃](https://n239.xyz/glycowave/blog/yeshi-zenme-chi/)：問題在一路吃過去的累加，不在單品。
+  蚵仔煎的粉漿、鹽酥雞的裹粉、大腸包小腸的糯米都是主食等級；先決定一樣主食，其餘挑蛋白質。
 - [隱私政策 / Privacy Policy](https://n239.xyz/glycowave/privacy.html)
 - [使用條款 / Terms of Use](https://n239.xyz/glycowave/terms.html)
