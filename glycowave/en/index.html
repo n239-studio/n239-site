@@ -253,23 +253,25 @@
   .showcase-copy { max-width: 760px; margin-bottom: 50px; }
   .showcase-copy h2 { font-size: clamp(34px, 4vw, 58px); margin-bottom: 16px; }
   .showcase-copy .sec-lede { max-width: 720px; margin: 0; }
-  .carousel { position: relative; min-width: 0; }
+  .carousel { position: relative; min-width: 0; perspective: 1400px; }
   .track {
-    display: flex; gap: 24px; overflow-x: auto; padding: 4px 2px 24px;
-    scroll-snap-type: x mandatory; scroll-behavior: smooth;
-    scroll-padding-left: 2px; overscroll-behavior-x: contain;
-    -webkit-overflow-scrolling: touch; scrollbar-width: none;
+    position: relative; display: block; height: clamp(700px, 57vw, 830px);
+    overflow: hidden; padding: 4px 0 24px; transform-style: preserve-3d;
   }
-  .track::-webkit-scrollbar { display: none; }
   .track:focus-visible { outline: 2px solid var(--ink); outline-offset: 6px; border-radius: 12px; }
   .phone-shot {
-    flex: 0 0 clamp(320px, 26vw, 410px); width: clamp(320px, 26vw, 410px);
-    margin: 0; scroll-snap-align: start;
+    position: absolute; top: 4px; left: 50%; width: clamp(320px, 26vw, 410px);
+    margin: 0; opacity: var(--gallery-opacity, 1); z-index: var(--gallery-z, 1);
+    transform: perspective(1400px) translateX(calc(-50% + var(--gallery-x, 0px))) rotateY(var(--gallery-rotate, 0deg)) scale(var(--gallery-scale, 1)) !important;
+    transform-origin: center top; transition: transform .75s cubic-bezier(.22,.7,.3,1), opacity .55s ease, filter .55s ease;
+    filter: saturate(var(--gallery-saturation, 1)); pointer-events: none;
+    opacity: var(--gallery-opacity, 1) !important;
   }
+  .phone-shot.is-active { pointer-events: auto; }
   .shot-media {
     min-height: 670px; padding: 38px 24px 0; overflow: hidden;
     display: flex; align-items: flex-start; justify-content: center;
-    border-radius: 30px; background: #F5F5F7;
+    border-radius: 30px; background: #F5F5F7; box-shadow: 0 22px 48px rgba(0,0,0,.12);
   }
   .device-frame {
     position: relative; width: min(calc(100% - 10px), 330px); margin: 0 auto;
@@ -291,8 +293,9 @@
   .device-screen img {
     display: block; width: 100%; height: auto; margin: 0; background: #fff;
   }
-  .phone-shot figcaption { color: var(--ink); font-size: 18px; line-height: 1.45; font-weight: 700; padding: 22px 18px 0; }
+  .phone-shot figcaption { color: var(--ink); font-size: 18px; line-height: 1.45; font-weight: 700; padding: 22px 18px 0; transition: opacity .45s ease, transform .45s ease; }
   .phone-shot figcaption span { display: block; font-weight: 400; font-size: 15px; line-height: 1.65; color: var(--ink-mute); margin-top: 7px; }
+  .phone-shot:not(.is-active) figcaption { opacity: 0; transform: translateY(10px); }
 
   .c-nav { display: flex; justify-content: flex-end; align-items: center; gap: 12px; margin-top: 22px; }
   .c-btn {
@@ -310,8 +313,8 @@
     .showcase-layout { width: calc(100% - 40px); }
     .showcase-copy { margin-bottom: 34px; }
     .showcase-copy h2 { font-size: clamp(32px, 10vw, 44px); }
-    .track { gap: 16px; padding-bottom: 18px; }
-    .phone-shot { flex-basis: calc(100vw - 56px); width: calc(100vw - 56px); }
+    .track { height: 700px; padding-bottom: 18px; }
+    .phone-shot { width: calc(100vw - 56px); }
     .shot-media { min-height: 590px; padding: 28px 18px 0; border-radius: 26px; }
     .device-frame { width: min(calc(100% - 8px), 292px); border-radius: 46px; }
     .device-screen { border-radius: 37px; }
@@ -320,7 +323,7 @@
     .c-nav { margin-top: 18px; }
   }
 
-  @media (prefers-reduced-motion: reduce) { .track { scroll-behavior: auto; } }
+  @media (prefers-reduced-motion: reduce) { .phone-shot { transition-duration: .001ms; } }
   /* mini list (history screen) */
   .rows { display: flex; flex-direction: column; gap: 10px; padding-top: 6px; }
   .row { display: flex; gap: 12px; align-items: center; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 10px 12px; }
@@ -785,55 +788,57 @@
     var next = section.querySelector('[data-dir="1"]');
     var current = 0;
     var timer;
-    var scrolling;
     var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (!items.length) return;
 
-    function stepSize() {
-      return items.length > 1 ? items[1].offsetLeft - items[0].offsetLeft : track.clientWidth;
-    }
-    function maxIndex() {
-      return Math.min(items.length - 1, Math.max(0, Math.ceil((track.scrollWidth - track.clientWidth - 1) / stepSize())));
-    }
-    function updateButtons() {
-      prev.disabled = current <= 0;
-      next.disabled = current >= maxIndex();
-    }
-    function sync(i, instant) {
-      current = Math.max(0, Math.min(maxIndex(), i));
-      track.scrollTo({ left: Math.min(current * stepSize(), track.scrollWidth - track.clientWidth), behavior: instant || reduceMotion ? 'auto' : 'smooth' });
-      updateButtons();
+    function render(i) {
+      current = (i + items.length) % items.length;
+      var cardWidth = items[0].getBoundingClientRect().width;
+      var step = Math.max(220, Math.min(330, cardWidth * .78));
+      items.forEach(function (item, n) {
+        var relative = n - current;
+        if (relative > items.length / 2) relative -= items.length;
+        if (relative < -items.length / 2) relative += items.length;
+        var distance = Math.abs(relative);
+        var scale = distance === 0 ? 1 : distance === 1 ? .82 : .66;
+        var opacity = distance === 0 ? 1 : distance === 1 ? .68 : .28;
+        item.style.setProperty('--gallery-x', (relative * step) + 'px');
+        item.style.setProperty('--gallery-rotate', (relative === 0 ? 0 : relative > 0 ? -28 : 28) + 'deg');
+        item.style.setProperty('--gallery-scale', scale);
+        item.style.setProperty('--gallery-opacity', opacity);
+        item.style.setProperty('--gallery-z', String(6 - distance));
+        item.classList.toggle('is-active', distance === 0);
+        item.setAttribute('aria-hidden', String(distance > 1));
+      });
+      prev.disabled = false;
+      next.disabled = false;
     }
     function start() {
-      if (reduceMotion || document.hidden || maxIndex() === 0) return;
+      if (reduceMotion || document.hidden || items.length < 2) return;
       clearInterval(timer);
-      timer = setInterval(function () { sync(current >= maxIndex() ? 0 : current + 1); }, 5000);
+      timer = setInterval(function () { render(current + 1); }, 5000);
     }
     function stop() { clearInterval(timer); }
     function restart() { stop(); start(); }
-    function go(dir) { sync(current + dir); restart(); }
+    function go(dir) { render(current + dir); restart(); }
 
     prev.addEventListener('click', function () { go(-1); });
     next.addEventListener('click', function () { go(1); });
+    items.forEach(function (item, n) {
+      item.addEventListener('click', function () { if (n !== current) go(n - current); });
+    });
     track.addEventListener('keydown', function (e) {
       if (e.key === 'ArrowRight') { e.preventDefault(); go(1); }
       if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
     });
-    track.addEventListener('scroll', function () {
-      clearTimeout(scrolling);
-      scrolling = setTimeout(function () {
-        current = Math.max(0, Math.min(maxIndex(), Math.round(track.scrollLeft / stepSize())));
-        updateButtons();
-      }, 80);
-    }, { passive: true });
 
     section.addEventListener('mouseenter', stop);
     section.addEventListener('mouseleave', start);
     section.addEventListener('focusin', stop);
     section.addEventListener('focusout', start);
     document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
-    window.addEventListener('resize', function () { sync(current, true); }, { passive: true });
-    sync(0, true);
+    window.addEventListener('resize', function () { render(current); }, { passive: true });
+    render(0);
     start();
   });
 })();
