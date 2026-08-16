@@ -255,7 +255,11 @@
   }
   .showcase-copy { align-self: center; }
   .showcase-copy .sec-lede { margin-bottom: 34px; }
-  .carousel { position: relative; min-width: 0; }
+  .carousel {
+    position: relative; min-width: 0; padding: 32px 28px 24px;
+    border-radius: 34px; background: #1D1D1F;
+    box-shadow: 0 28px 70px rgba(0,0,0,.14);
+  }
   .track {
     display: flex; gap: 0; overflow-x: hidden; padding: 6px 0 10px;
     scroll-snap-type: x mandatory; scroll-behavior: smooth;
@@ -264,13 +268,28 @@
   .track::-webkit-scrollbar { display: none; }
   .track:focus-visible { outline: 2px solid var(--ink); outline-offset: 6px; border-radius: 12px; }
   .phone-shot { flex: 0 0 100%; width: 100%; margin: 0; scroll-snap-align: start; }
-  .phone-shot img {
-    display: block; width: 100%; max-width: 400px; height: auto; margin: 0 auto; background: #fff;
-    border: 1px solid var(--line); border-radius: 34px;
-    box-shadow: 0 18px 46px rgba(0,0,0,.10);
+  .device-frame {
+    position: relative; width: min(calc(100% - 14px), 340px); margin: 0 auto;
+    padding: 9px; border-radius: 52px;
+    background: linear-gradient(145deg, #657084 0%, #111722 11%, #030405 42%, #0A0D12 70%, #526078 91%, #0B0D12 100%);
+    box-shadow: 0 22px 44px rgba(0,0,0,.38), inset 0 0 0 1px rgba(255,255,255,.35), inset 0 0 0 3px #050608;
   }
-  .phone-shot figcaption { font-size: 14.5px; font-weight: 700; margin-top: 18px; }
-  .phone-shot figcaption span { display: block; font-weight: 400; font-size: 13px; color: var(--ink-soft); margin-top: 3px; }
+  .device-frame::before,
+  .device-frame::after {
+    content: ""; position: absolute; z-index: -1; width: 4px;
+    border-radius: 3px; background: linear-gradient(#445069, #080B11 20%, #080B11 80%, #445069);
+  }
+  .device-frame::before { left: -3px; top: 132px; height: 78px; box-shadow: 0 94px 0 #10151F; }
+  .device-frame::after { right: -3px; top: 178px; height: 118px; }
+  .device-screen {
+    overflow: hidden; border-radius: 43px; background: #000;
+    box-shadow: inset 0 0 0 2px rgba(255,255,255,.08);
+  }
+  .device-screen img {
+    display: block; width: 100%; height: auto; margin: 0; background: #fff;
+  }
+  .phone-shot figcaption { color: #fff; font-size: 14.5px; font-weight: 700; margin-top: 18px; }
+  .phone-shot figcaption span { display: block; font-weight: 400; font-size: 13px; color: rgba(255,255,255,.62); margin-top: 3px; }
 
   .c-nav { display: flex; align-items: center; gap: 14px; margin-top: 26px; }
   .c-btn {
@@ -293,7 +312,7 @@
   @media (max-width: 760px) {
     .showcase-layout { grid-template-columns: 1fr; gap: 38px; }
     .showcase-copy .sec-lede { margin-bottom: 26px; }
-    .carousel { width: min(100%, 360px); margin: 0 auto; }
+    .carousel { width: min(100%, 360px); margin: 0 auto; padding: 22px 20px 20px; border-radius: 28px; }
     .c-hint { display: none; }
   }
 
@@ -435,9 +454,10 @@
      縮到 0 的狀態掛在 .reveal 底下（由 JS 加），沒有 JS 時長條維持原高度。 */
 
   /* 卡片與按鈕的手感 */
-  .card, .phone-shot img, .shot { transition: transform .35s cubic-bezier(.22,.7,.3,1), box-shadow .35s cubic-bezier(.22,.7,.3,1); }
+  .card, .device-frame, .shot { transition: transform .35s cubic-bezier(.22,.7,.3,1), box-shadow .35s cubic-bezier(.22,.7,.3,1); }
   @media (hover: hover) {
-    .card:hover, .phone-shot img:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.07); }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.07); }
+    .device-frame:hover { transform: translateY(-4px); box-shadow: 0 28px 54px rgba(0,0,0,.5), inset 0 0 0 1px rgba(255,255,255,.35), inset 0 0 0 3px #050608; }
     .shot:hover { transform: translateY(-4px); box-shadow: 0 14px 36px rgba(0,0,0,.09); }
     .shot img { transition: transform .6s cubic-bezier(.22,.7,.3,1); }
     .shot:hover img { transform: scale(1.04); }
@@ -621,19 +641,19 @@
     <div class="carousel">
       <div class="track" tabindex="0" role="region" aria-label="Actual app screens">
         <figure class="phone-shot">
-          <img src="./assets/screen-en-1-home.jpg" width="640" height="1390" loading="lazy" decoding="async" alt="GlycoWave home screen showing today's nutrition at 20% protein, 54% carbs, 25% fiber, average GI 65, and an analysis of a milk tea and butter cookie"/>
+          <div class="device-frame"><div class="device-screen"><img src="./assets/screen-en-1-home.jpg" width="640" height="1390" loading="lazy" decoding="async" alt="GlycoWave home screen showing today's nutrition at 20% protein, 54% carbs, 25% fiber, average GI 65, and an analysis of a milk tea and butter cookie"/></div></div>
           <figcaption>What you ate, and where it lands<span>Today&rsquo;s macros, average GI, and each meal&rsquo;s risk and balance tip</span></figcaption>
         </figure>
         <figure class="phone-shot">
-          <img src="./assets/screen-en-2-dino.jpg" width="640" height="1390" loading="lazy" decoding="async" alt="GlycoWave dino room showing Wavy at level 6, growth XP 65 of 100, daily vitality 71, and materials earned"/>
+          <div class="device-frame"><div class="device-screen"><img src="./assets/screen-en-2-dino.jpg" width="640" height="1390" loading="lazy" decoding="async" alt="GlycoWave dino room showing Wavy at level 6, growth XP 65 of 100, daily vitality 71, and materials earned"/></div></div>
           <figcaption>A companion that grows with you<span>Growth XP, daily vitality, and materials earned from logging and walking</span></figcaption>
         </figure>
         <figure class="phone-shot">
-          <img src="./assets/screen-en-3-trends.jpg" width="640" height="1390" loading="lazy" decoding="async" alt="GlycoWave trends screen listing foods that energize you and foods that make you drowsy"/>
+          <div class="device-frame"><div class="device-screen"><img src="./assets/screen-en-3-trends.jpg" width="640" height="1390" loading="lazy" decoding="async" alt="GlycoWave trends screen listing foods that energize you and foods that make you drowsy"/></div></div>
           <figcaption>Which lunches carry you to the end of the day<span>The week&rsquo;s feelings, and the foods behind them</span></figcaption>
         </figure>
         <figure class="phone-shot">
-          <img src="./assets/screen-en-4-history.jpg" width="640" height="1390" loading="lazy" decoding="async" alt="GlycoWave meal history showing today's energy with 3 meals, 2 faster and 1 slower, plus today's nutrition"/>
+          <div class="device-frame"><div class="device-screen"><img src="./assets/screen-en-4-history.jpg" width="640" height="1390" loading="lazy" decoding="async" alt="GlycoWave meal history showing today's energy with 3 meals, 2 faster and 1 slower, plus today's nutrition"/></div></div>
           <figcaption>One look back a day<span>Meals logged, how fast they landed, and one note for today</span></figcaption>
         </figure>
       </div>
