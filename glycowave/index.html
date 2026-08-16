@@ -251,51 +251,14 @@
 
   /* ── App UI showcase ── */
   .ui-grid { display: grid; gap: 20px; grid-template-columns: 1fr; }
+  .shot-frame { margin: 0; }
+  .shot-frame img {
+    display: block; width: 100%; height: auto;
+    border: 1px solid var(--line); border-radius: 20px; background: #fff;
+  }
+  .shot-frame figcaption { font-size: 14.5px; font-weight: 700; margin-top: 16px; }
+  .shot-frame figcaption span { display: block; font-weight: 400; font-size: 13px; color: var(--ink-soft); margin-top: 2px; }
   @media (min-width: 720px) { .ui-grid { grid-template-columns: repeat(2, 1fr); } }
-  .ui-frame {
-    border: 1px solid var(--line); border-radius: 26px; background: #FAFAFA;
-    padding: 22px 18px; overflow: hidden;
-  }
-  .ui-frame .ui-title { font-size: 13px; font-weight: 700; color: var(--ink-mute); letter-spacing: 1px; margin-bottom: 16px; }
-  .ui-frame .ui-caption { font-size: 14.5px; font-weight: 700; margin-top: 18px; }
-  .ui-frame .ui-caption span { display: block; font-weight: 400; font-size: 13px; color: var(--ink-soft); margin-top: 2px; }
-
-  /* mini ring (walk screen) */
-  .ring-wrap { display: flex; align-items: center; justify-content: center; padding: 12px 0; }
-  .ring {
-    width: 132px; height: 132px; border-radius: 50%;
-    background: conic-gradient(var(--ink) 0 71%, #E8E8E8 71% 100%);
-    display: flex; align-items: center; justify-content: center;
-  }
-  .ring-hole {
-    width: 104px; height: 104px; border-radius: 50%; background: #FAFAFA;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-  }
-  .ring-hole b { font-size: 20px; letter-spacing: -0.5px; }
-  .ring-hole small { font-size: 11px; color: var(--ink-mute); }
-
-  /* mini bars (trends screen) */
-  .bars { display: flex; align-items: flex-end; gap: 10px; height: 130px; padding: 12px 6px 0; }
-  .bars i { flex: 1; background: #E4E4E4; border-radius: 8px 8px 4px 4px; }
-  .bars i.hi { background: var(--ink); }
-  .bars-labels { display: flex; gap: 10px; padding: 8px 6px 0; }
-  .bars-labels span { flex: 1; text-align: center; font-size: 10px; color: var(--ink-mute); }
-
-  /* ── 小恐龍夥伴卡 ── */
-  .dino-row { display: flex; align-items: center; gap: 14px; }
-  .dino-art { width: 84px; height: 70px; flex: none; fill: var(--ink); }
-  .dino-name { font-size: 15.5px; font-weight: 700; letter-spacing: -0.2px; }
-  .dino-tags { display: flex; gap: 6px; margin-top: 7px; flex-wrap: wrap; }
-  .dino-tags span { font-size: 10.5px; font-weight: 700; padding: 3px 9px; border-radius: 999px; background: #F1F1F1; color: var(--ink-soft); white-space: nowrap; }
-  .xp { margin-top: 16px; }
-  .xp-top { display: flex; justify-content: space-between; font-size: 10px; letter-spacing: 1.2px; font-weight: 700; color: var(--ink-mute); text-transform: uppercase; margin-bottom: 6px; }
-  .xp-bar { height: 6px; border-radius: 99px; background: #EEE; overflow: hidden; }
-  .xp-fill { height: 100%; width: 62%; border-radius: 99px; background: var(--ink); transform-origin: left center; }
-  .quests { display: flex; gap: 6px; margin-top: 12px; }
-  .quests span { flex: 1; text-align: center; font-size: 10px; font-weight: 700; padding: 7px 2px; border-radius: 999px; background: #F1F1F1; color: var(--ink-mute); }
-  .quests span.done { background: var(--ink); color: #fff; }
-
-
   /* mini list (history screen) */
   .rows { display: flex; flex-direction: column; gap: 10px; padding-top: 6px; }
   .row { display: flex; gap: 12px; align-items: center; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 10px 12px; }
@@ -431,26 +394,14 @@
   /* 步數圓環：@property 讓 conic-gradient 可以補間。
      不支援的瀏覽器會直接停在 71%（下面宣告的初始值），不會破圖。 */
   @property --ring-p { syntax: '<percentage>'; inherits: false; initial-value: 71%; }
-  .ring { --ring-p: 71%; background: conic-gradient(var(--ink) 0 var(--ring-p), #E8E8E8 var(--ring-p) 100%); }
-  @keyframes ringFill { from { --ring-p: 0%; } to { --ring-p: 71%; } }
-  .reveal.in .ring { animation: ringFill 1.3s cubic-bezier(.22,.7,.3,1) .2s backwards; }
 
   /* 長條圖：由下往上長，逐根錯開。
      縮到 0 的狀態掛在 .reveal 底下（由 JS 加），沒有 JS 時長條維持原高度。 */
-  .bars i { transform-origin: bottom center; }
-  .reveal .xp-fill { transform: scaleX(0); transition: transform 1.1s cubic-bezier(.22,.7,.3,1) .3s; }
-  .reveal.in .xp-fill { transform: scaleX(1); }
-  .reveal .bars i { transform: scaleY(0); transition: transform .7s cubic-bezier(.22,.7,.3,1); }
-  .reveal.in .bars i { transform: scaleY(1); }
-  .bars i:nth-child(1){transition-delay:.10s} .bars i:nth-child(2){transition-delay:.16s}
-  .bars i:nth-child(3){transition-delay:.22s} .bars i:nth-child(4){transition-delay:.28s}
-  .bars i:nth-child(5){transition-delay:.34s} .bars i:nth-child(6){transition-delay:.40s}
-  .bars i:nth-child(7){transition-delay:.46s}
 
   /* 卡片與按鈕的手感 */
-  .card, .ui-frame, .shot { transition: transform .35s cubic-bezier(.22,.7,.3,1), box-shadow .35s cubic-bezier(.22,.7,.3,1); }
+  .card, .shot-frame img, .shot { transition: transform .35s cubic-bezier(.22,.7,.3,1), box-shadow .35s cubic-bezier(.22,.7,.3,1); }
   @media (hover: hover) {
-    .card:hover, .ui-frame:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.07); }
+    .card:hover, .shot-frame img:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.07); }
     .shot:hover { transform: translateY(-4px); box-shadow: 0 14px 36px rgba(0,0,0,.09); }
     .shot img { transition: transform .6s cubic-bezier(.22,.7,.3,1); }
     .shot:hover img { transform: scale(1.04); }
@@ -467,7 +418,6 @@
     }
     .reveal { opacity: 1; transform: none; }
     .reveal .s-fill, .phone .s-fill { transform: scaleX(1); }
-    .reveal .bars i { transform: scaleY(1); }
   }
 
   /* ── 手機版垂直節奏 ──
@@ -488,7 +438,6 @@
     .chip { width: 46px; height: 46px; border-radius: 12px; margin-bottom: 18px; }
     .grid, .ui-grid, .photo-strip { gap: 14px; }
     .shot img { height: 240px; }
-    .ui-frame { padding: 20px 16px; }
     .disclaimer { padding: 22px 20px; }
     .hero-grid { gap: 40px; }
     footer { padding: 24px 0 40px; }
@@ -620,62 +569,29 @@
 <section>
   <div class="wrap">
     <h2><span class="nb">打開 app，</span><span class="nb">長這樣。</span></h2>
-    <p class="sec-lede">分析、養成、散步、回顧——四個畫面就是整個循環。</p>
+    <p class="sec-lede">分析、建議、養成、回顧——四個畫面就是整個循環。以下都是 app 的實際畫面。</p>
     <div class="ui-grid">
-      <div class="ui-frame">
-        <div class="ui-title">餐點分析</div>
-        <div class="s-card">
-          <div class="s-label">辨識到的食材</div>
-          <div class="s-items"><span>白飯</span><span>炸排骨</span><span>滷蛋</span><span>燙青菜</span></div>
-        </div>
-        <div class="s-card">
-          <div class="s-label">身體感受提醒</div>
-          <div class="s-big">下午可能偏昏沉</div>
-          <div class="s-bar"><div class="s-fill"></div></div>
-        </div>
-        <div class="s-card dark">
-          <div class="s-label">補償微行動</div>
-          <div class="s-big">晚餐先吃蛋白質，飯量減三分之一。</div>
-        </div>
-        <div class="ui-caption">先確認有沒有看錯菜<span>再看風險、營養比例與感受提醒</span></div>
-      </div>
-      <div class="ui-frame">
-        <div class="ui-title">我的小恐龍</div>
-        <div class="dino-row">
-          <svg class="dino-art" viewBox="0 0 108 94" role="img" aria-label="小恐龍夥伴">
-            <path d="M28 76 C10 76 3 63 9 51 C15 61 22 66 32 66 Z"/>
-            <path d="M38 38 L45 20 L53 37 Z"/><path d="M54 32 L62 12 L70 31 Z"/><path d="M70 34 L78 16 L86 37 Z"/>
-            <path d="M32 80 C22 80 16 70 18 58 C21 40 38 28 58 28 C80 28 96 40 96 58 C96 72 86 80 72 80 Z"/>
-            <rect x="36" y="74" width="18" height="12" rx="6"/><rect x="64" y="74" width="18" height="12" rx="6"/>
-            <circle cx="78" cy="50" r="5.2" fill="#fff"/><circle cx="79.6" cy="50" r="2.3" fill="#0A0A0A"/>
-          </svg>
-          <div>
-            <div class="dino-name">小浪龍</div>
-            <div class="dino-tags"><span>Lv.7</span><span>今日活力 68</span></div>
-          </div>
-        </div>
-        <div class="xp">
-          <div class="xp-top"><span>成長經驗</span><span>62 / 100</span></div>
-          <div class="xp-bar"><div class="xp-fill"></div></div>
-        </div>
-        <div class="quests"><span class="done">記錄餐點</span><span class="done">回報感受</span><span>散步 15 分鐘</span></div>
-        <div class="ui-caption">三件事都算進度<span>記錄、回報感受、散步各有素材與經驗</span></div>
-      </div>
-      <div class="ui-frame">
-        <div class="ui-title">飯後散步</div>
-        <div class="ring-wrap">
-          <div class="ring"><div class="ring-hole"><b>9:12</b><small>/ 15 分鐘</small></div></div>
-        </div>
-        <div class="ui-caption">走完，獲得活力葉<span>HealthKit 自動同步步數</span></div>
-      </div>
-      <div class="ui-frame">
-        <div class="ui-title">一週趨勢</div>
-        <div class="bars">
-          <i style="height:52%"></i><i style="height:78%" class="hi"></i><i style="height:40%"></i><i style="height:64%" class="hi"></i><i style="height:88%"></i><i style="height:58%" class="hi"></i><i style="height:34%"></i>
-        </div>
-        <div class="bars-labels"><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span></div>
-        <div class="ui-caption">看見自己的節奏<span>連續天數、穩定餐數與活動趨勢</span></div>
-      </div>
+      <figure class="shot-frame">
+        <img src="./assets/app-meal.jpg" width="1000" height="966" loading="lazy" decoding="async"
+             alt="GlycoWave 餐點分析畫面：奶茶加奶油餅乾，GI 69，蛋白質 10%、碳水 66%、纖維 24%，並附一段平手補償建議"/>
+        <figcaption>先看這餐落在哪<span>GI、營養比例，以及一句講人話的補償建議</span></figcaption>
+      </figure>
+      <figure class="shot-frame">
+        <img src="./assets/app-suggest.jpg" width="1000" height="650" loading="lazy" decoding="async"
+             alt="GlycoWave 的下一餐建議：超商無糖高纖豆漿加茶葉蛋加鮮蔬關東煮，用來平衡今日偏高的澱粉與糖分"/>
+        <figcaption>下一餐怎麼救回來<span>給得出店名與品項，不是「請減少精緻澱粉」</span></figcaption>
+      </figure>
+      <figure class="shot-frame">
+        <img src="./assets/app-dino.jpg" width="1000" height="825" loading="lazy" decoding="async"
+             alt="GlycoWave 的小恐龍夥伴卡：小浪龍 Lv.6，今日活力 71，成長經驗進度條，以及記錄餐點、回報感受、散步 15 分鐘三項每日任務"/>
+        <figcaption>三件事都算進度<span>記錄、回報感受、散步——沒做也不會被扣</span></figcaption>
+      </figure>
+      <figure class="shot-frame">
+        <img src="./assets/app-trends.jpg" width="1000" height="666" loading="lazy" decoding="async"
+             alt="GlycoWave 身體感受分析：讓你精神好的食物是雞肉沙拉捲加無糖茶，讓你腦霧想睡的食物是炸雞便當加甜拿鐵"/>
+        <figcaption>哪些餐讓你撐到下班<span>記幾週之後，自己的模式會浮出來</span></figcaption>
+      </figure>
+    </div>
     </div>
   </div>
 </section>
@@ -818,7 +734,7 @@
   document.querySelectorAll('section').forEach(function (sec) {
     sec.querySelectorAll('h2, .sec-lede, .more, .statement p, .disclaimer, .appicon, .final .pill')
        .forEach(function (el) { items.push([el, 0]); });
-    sec.querySelectorAll('.grid > .card, .ui-grid > .ui-frame, .photo-strip > .shot')
+    sec.querySelectorAll('.grid > .card, .ui-grid > .shot-frame, .photo-strip > .shot')
        .forEach(function (el, i) { items.push([el, 70 + i * 80]); });
   });
   if (!items.length) return;
