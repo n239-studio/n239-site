@@ -249,32 +249,35 @@
   .s-card.dark .s-label { color: #9A9A9A; }
   .s-card.dark .s-big { color: #fff; font-size: 13.5px; font-weight: 600; }
 
-  /* ── App UI showcase ── */
   /* ── App 畫面輪播 ── */
-  .showcase-layout {
-    display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
-    gap: clamp(56px, 9vw, 120px); align-items: center;
-  }
-  .showcase-copy { align-self: center; }
-  .showcase-copy .sec-lede { margin-bottom: 34px; }
-  .carousel {
-    position: relative; min-width: 0; padding: 32px 28px 24px;
-    border-radius: 34px; background: #1D1D1F;
-    box-shadow: 0 28px 70px rgba(0,0,0,.14);
-  }
+  .showcase-section { overflow: hidden; background: #fff; padding: 88px 0 72px; }
+  .showcase-layout { width: min(1680px, calc(100% - 96px)); margin: 0 auto; }
+  .showcase-copy { max-width: 760px; margin-bottom: 50px; }
+  .showcase-copy h2 { font-size: clamp(34px, 4vw, 58px); margin-bottom: 16px; }
+  .showcase-copy .sec-lede { max-width: 720px; margin: 0; }
+  .carousel { position: relative; min-width: 0; }
   .track {
-    display: flex; gap: 0; overflow-x: hidden; padding: 6px 0 10px;
+    display: flex; gap: 24px; overflow-x: auto; padding: 4px 2px 24px;
     scroll-snap-type: x mandatory; scroll-behavior: smooth;
+    scroll-padding-left: 2px; overscroll-behavior-x: contain;
     -webkit-overflow-scrolling: touch; scrollbar-width: none;
   }
   .track::-webkit-scrollbar { display: none; }
   .track:focus-visible { outline: 2px solid var(--ink); outline-offset: 6px; border-radius: 12px; }
-  .phone-shot { flex: 0 0 100%; width: 100%; margin: 0; scroll-snap-align: start; }
+  .phone-shot {
+    flex: 0 0 clamp(320px, 26vw, 410px); width: clamp(320px, 26vw, 410px);
+    margin: 0; scroll-snap-align: start;
+  }
+  .shot-media {
+    min-height: 670px; padding: 38px 24px 0; overflow: hidden;
+    display: flex; align-items: flex-start; justify-content: center;
+    border-radius: 30px; background: #F5F5F7;
+  }
   .device-frame {
-    position: relative; width: min(calc(100% - 14px), 340px); margin: 0 auto;
+    position: relative; width: min(calc(100% - 10px), 330px); margin: 0 auto;
     padding: 9px; border-radius: 52px;
     background: linear-gradient(145deg, #657084 0%, #111722 11%, #030405 42%, #0A0D12 70%, #526078 91%, #0B0D12 100%);
-    box-shadow: 0 22px 44px rgba(0,0,0,.38), inset 0 0 0 1px rgba(255,255,255,.35), inset 0 0 0 3px #050608;
+    box-shadow: 0 22px 44px rgba(0,0,0,.25), inset 0 0 0 1px rgba(255,255,255,.35), inset 0 0 0 3px #050608;
   }
   .device-frame::before,
   .device-frame::after {
@@ -290,32 +293,33 @@
   .device-screen img {
     display: block; width: 100%; height: auto; margin: 0; background: #fff;
   }
-  .phone-shot figcaption { color: #fff; font-size: 14.5px; font-weight: 700; margin-top: 18px; }
-  .phone-shot figcaption span { display: block; font-weight: 400; font-size: 13px; color: rgba(255,255,255,.62); margin-top: 3px; }
+  .phone-shot figcaption { color: var(--ink); font-size: 18px; line-height: 1.45; font-weight: 700; padding: 22px 18px 0; }
+  .phone-shot figcaption span { display: block; font-weight: 400; font-size: 15px; line-height: 1.65; color: var(--ink-mute); margin-top: 7px; }
 
-  .c-nav { display: flex; align-items: center; gap: 14px; margin-top: 26px; }
+  .c-nav { display: flex; justify-content: flex-end; align-items: center; gap: 12px; margin-top: 22px; }
   .c-btn {
-    width: 44px; height: 44px; flex: none; border-radius: 50%;
-    border: 1px solid var(--line); background: #fff; color: var(--ink);
-    font-size: 17px; line-height: 1; cursor: pointer;
+    width: 48px; height: 48px; flex: none; border-radius: 50%;
+    border: 0; background: #E8E8ED; color: var(--ink);
+    font-size: 20px; line-height: 1; cursor: pointer;
     display: inline-flex; align-items: center; justify-content: center;
-    transition: background .15s ease, border-color .15s ease, opacity .15s ease;
+    transition: background .15s ease, transform .15s ease, opacity .15s ease;
   }
-  .c-btn:hover:not(:disabled) { background: #F6F6F6; border-color: #D0D0D0; }
+  .c-btn:hover:not(:disabled) { background: #D9D9DE; transform: scale(1.04); }
   .c-btn:disabled { opacity: .3; cursor: default; }
-  .c-dots { display: flex; gap: 8px; }
-  .c-dots button {
-    width: 8px; height: 8px; padding: 0; border: 0; border-radius: 50%;
-    background: var(--line); cursor: pointer; transition: background .2s ease, transform .2s ease;
-  }
-  .c-dots button[aria-current="true"] { background: var(--ink); transform: scale(1.25); }
-  .c-hint { display: block; margin-top: 14px; font-size: 13px; color: var(--ink-mute); }
 
   @media (max-width: 760px) {
-    .showcase-layout { grid-template-columns: 1fr; gap: 38px; }
-    .showcase-copy .sec-lede { margin-bottom: 26px; }
-    .carousel { width: min(100%, 360px); margin: 0 auto; padding: 22px 20px 20px; border-radius: 28px; }
-    .c-hint { display: none; }
+    .showcase-section { padding: 64px 0 52px; }
+    .showcase-layout { width: calc(100% - 40px); }
+    .showcase-copy { margin-bottom: 34px; }
+    .showcase-copy h2 { font-size: clamp(32px, 10vw, 44px); }
+    .track { gap: 16px; padding-bottom: 18px; }
+    .phone-shot { flex-basis: calc(100vw - 56px); width: calc(100vw - 56px); }
+    .shot-media { min-height: 590px; padding: 28px 18px 0; border-radius: 26px; }
+    .device-frame { width: min(calc(100% - 8px), 292px); border-radius: 46px; }
+    .device-screen { border-radius: 37px; }
+    .phone-shot figcaption { padding: 18px 10px 0; font-size: 17px; }
+    .phone-shot figcaption span { font-size: 14px; }
+    .c-nav { margin-top: 18px; }
   }
 
   @media (prefers-reduced-motion: reduce) { .track { scroll-behavior: auto; } }
@@ -632,41 +636,34 @@
   </div>
 </section>
 
-<section>
-  <div class="wrap showcase-layout">
+<section class="showcase-section">
+  <div class="showcase-layout">
     <div class="showcase-copy">
       <h2><span class="nb">打開 app，</span><span class="nb">長這樣。</span></h2>
       <p class="sec-lede">分析、建議、養成、回顧——四個畫面就是整個循環。以下都是 app 的實際畫面。</p>
-      <div class="c-nav">
-        <button class="c-btn" type="button" data-dir="-1" aria-label="上一張">&#8592;</button>
-        <div class="c-dots">
-          <button type="button" aria-label="第 1 張" aria-current="true"></button>
-          <button type="button" aria-label="第 2 張"></button>
-          <button type="button" aria-label="第 3 張"></button>
-          <button type="button" aria-label="第 4 張"></button>
-        </div>
-        <button class="c-btn" type="button" data-dir="1" aria-label="下一張">&#8594;</button>
-      </div>
-      <span class="c-hint">每 5 秒自動輪播，也可用按鈕或方向鍵切換</span>
     </div>
     <div class="carousel">
       <div class="track" tabindex="0" role="region" aria-label="app 實際畫面">
         <figure class="phone-shot">
-          <div class="device-frame"><div class="device-screen"><img src="./assets/screen-zh-1-home.jpg" width="640" height="1390" loading="lazy" decoding="async" alt="GlycoWave 首頁：今日營養概覽顯示蛋白質 20%、碳水 54%、纖維 25%，平均 GI 65，下方是奶茶加奶油餅乾這一餐的分析"/></div></div>
+          <div class="shot-media"><div class="device-frame"><div class="device-screen"><img src="./assets/screen-zh-1-home.jpg" width="640" height="1390" loading="lazy" decoding="async" alt="GlycoWave 首頁：今日營養概覽顯示蛋白質 20%、碳水 54%、纖維 25%，平均 GI 65，下方是奶茶加奶油餅乾這一餐的分析"/></div></div></div>
           <figcaption>今天吃了什麼，落在哪<span>營養概覽、平均 GI，以及每一餐的風險與補償建議</span></figcaption>
         </figure>
         <figure class="phone-shot">
-          <div class="device-frame"><div class="device-screen"><img src="./assets/screen-zh-2-next.jpg" width="640" height="1390" loading="lazy" decoding="async" alt="GlycoWave 的下一餐建議：超商無糖高纖豆漿加茶葉蛋加關東煮，下方是小浪龍 Lv.6 的夥伴卡與三項每日任務"/></div></div>
+          <div class="shot-media"><div class="device-frame"><div class="device-screen"><img src="./assets/screen-zh-2-next.jpg" width="640" height="1390" loading="lazy" decoding="async" alt="GlycoWave 的下一餐建議：超商無糖高纖豆漿加茶葉蛋加關東煮，下方是小浪龍 Lv.6 的夥伴卡與三項每日任務"/></div></div></div>
           <figcaption>下一餐怎麼救回來<span>給得出店名與品項，還有一隻會跟著長大的小恐龍</span></figcaption>
         </figure>
         <figure class="phone-shot">
-          <div class="device-frame"><div class="device-screen"><img src="./assets/screen-zh-3-trends.jpg" width="640" height="1390" loading="lazy" decoding="async" alt="GlycoWave 身體感受分析：讓你精神好的食物是雞肉沙拉捲加無糖茶，讓你腦霧想睡的是炸雞便當加甜拿鐵"/></div></div>
+          <div class="shot-media"><div class="device-frame"><div class="device-screen"><img src="./assets/screen-zh-3-trends.jpg" width="640" height="1390" loading="lazy" decoding="async" alt="GlycoWave 身體感受分析：讓你精神好的食物是雞肉沙拉捲加無糖茶，讓你腦霧想睡的是炸雞便當加甜拿鐵"/></div></div></div>
           <figcaption>哪些餐讓你撐到下班<span>本週感受分布，以及讓你精神好、讓你腦霧的食物</span></figcaption>
         </figure>
         <figure class="phone-shot">
-          <div class="device-frame"><div class="device-screen"><img src="./assets/screen-zh-4-history.jpg" width="640" height="1390" loading="lazy" decoding="async" alt="GlycoWave 飲食紀錄：今日能量統計顯示總餐數 3、吸收較快 2、吸收較慢 1，並提醒今天澱粉比例偏高"/></div></div>
+          <div class="shot-media"><div class="device-frame"><div class="device-screen"><img src="./assets/screen-zh-4-history.jpg" width="640" height="1390" loading="lazy" decoding="async" alt="GlycoWave 飲食紀錄：今日能量統計顯示總餐數 3、吸收較快 2、吸收較慢 1，並提醒今天澱粉比例偏高"/></div></div></div>
           <figcaption>一天回頭看一次<span>總餐數、吸收快慢，以及今天的一句提醒</span></figcaption>
         </figure>
+      </div>
+      <div class="c-nav">
+        <button class="c-btn" type="button" data-dir="-1" aria-label="上一張">&#8592;</button>
+        <button class="c-btn" type="button" data-dir="1" aria-label="下一張">&#8594;</button>
       </div>
     </div>
   </div>
@@ -800,22 +797,31 @@
     var section = root.closest('.showcase-layout');
     var prev = section.querySelector('[data-dir="-1"]');
     var next = section.querySelector('[data-dir="1"]');
-    var dots = Array.prototype.slice.call(section.querySelectorAll('.c-dots button'));
     var current = 0;
     var timer;
+    var scrolling;
     var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (!items.length) return;
 
-    function sync(i) {
-      current = (i + items.length) % items.length;
-      track.scrollTo({ left: current * track.clientWidth, behavior: reduceMotion ? 'auto' : 'smooth' });
-      dots.forEach(function (d, n) { d.setAttribute('aria-current', String(n === current)); });
-      items.forEach(function (item, n) { item.setAttribute('aria-hidden', String(n !== current)); });
+    function stepSize() {
+      return items.length > 1 ? items[1].offsetLeft - items[0].offsetLeft : track.clientWidth;
+    }
+    function maxIndex() {
+      return Math.min(items.length - 1, Math.max(0, Math.ceil((track.scrollWidth - track.clientWidth - 1) / stepSize())));
+    }
+    function updateButtons() {
+      prev.disabled = current <= 0;
+      next.disabled = current >= maxIndex();
+    }
+    function sync(i, instant) {
+      current = Math.max(0, Math.min(maxIndex(), i));
+      track.scrollTo({ left: Math.min(current * stepSize(), track.scrollWidth - track.clientWidth), behavior: instant || reduceMotion ? 'auto' : 'smooth' });
+      updateButtons();
     }
     function start() {
-      if (reduceMotion || document.hidden) return;
+      if (reduceMotion || document.hidden || maxIndex() === 0) return;
       clearInterval(timer);
-      timer = setInterval(function () { sync(current + 1); }, 5000);
+      timer = setInterval(function () { sync(current >= maxIndex() ? 0 : current + 1); }, 5000);
     }
     function stop() { clearInterval(timer); }
     function restart() { stop(); start(); }
@@ -823,21 +829,25 @@
 
     prev.addEventListener('click', function () { go(-1); });
     next.addEventListener('click', function () { go(1); });
-    dots.forEach(function (d, n) {
-      d.addEventListener('click', function () { sync(n); restart(); });
-    });
     track.addEventListener('keydown', function (e) {
       if (e.key === 'ArrowRight') { e.preventDefault(); go(1); }
       if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
     });
+    track.addEventListener('scroll', function () {
+      clearTimeout(scrolling);
+      scrolling = setTimeout(function () {
+        current = Math.max(0, Math.min(maxIndex(), Math.round(track.scrollLeft / stepSize())));
+        updateButtons();
+      }, 80);
+    }, { passive: true });
 
     section.addEventListener('mouseenter', stop);
     section.addEventListener('mouseleave', start);
     section.addEventListener('focusin', stop);
     section.addEventListener('focusout', start);
     document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
-    window.addEventListener('resize', function () { sync(current); }, { passive: true });
-    sync(0);
+    window.addEventListener('resize', function () { sync(current, true); }, { passive: true });
+    sync(0, true);
     start();
   });
 })();
