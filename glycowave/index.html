@@ -326,6 +326,14 @@
   }
   .sec-lede { font-size: 17px; color: var(--ink-soft); max-width: 560px; margin: 0 0 56px; }
 
+  /* 章節末的延伸閱讀。不能沿用 .sec-lede——那個是給標題下方的導言用的，
+     max-width 560px 會讓這種整行敘述在寬螢幕上斷得很碎，
+     而 56px 的 margin-bottom 疊上 section 的 padding 會空出一大塊。 */
+  .more { margin-top: 40px; max-width: 780px; }
+  .more-label { font-size: 12px; letter-spacing: 2px; font-weight: 800; color: var(--ink-mute); text-transform: uppercase; margin-bottom: 12px; }
+  .more p { font-size: 16.5px; color: var(--ink-soft); margin: 0 0 8px; }
+  .more p:last-child { margin-bottom: 0; }
+
   /* ── Card grid (january-style: white, hairline border, big radius) ── */
   .grid { display: grid; gap: 20px; grid-template-columns: 1fr; }
   @media (min-width: 720px) { .grid.cols-3 { grid-template-columns: repeat(3, 1fr); } .grid.cols-2 { grid-template-columns: repeat(2, 1fr); } }
@@ -756,7 +764,11 @@
         <p>記錄完一餐之後，可以和 app 裡的小恐龍一起走 15 分鐘，步數經 HealthKit 自動同步。走完會獲得活力葉與成長經驗，讓小恐龍長大。沒走也不會有任何懲罰——不會生病、不會掉等級，也不會收回已經解鎖的東西。</p>
       </div>
     </div>
-    <p class="sec-lede" style="margin-top:32px;">延伸閱讀：<a href="./no-cgm/">不用 CGM 怎麼知道血糖？</a>——為什麼不量測就沒有數值，以及你其實該改看什麼。<br/>或看<a href="./blog/">台灣外食的餐點對照</a>：滷肉飯與雞肉飯、牛肉麵與拉麵、水餃與鍋貼，哪個血糖衝比較兇。</p>
+    <div class="more">
+      <div class="more-label">延伸閱讀</div>
+      <p><a href="./no-cgm/">不用 CGM 怎麼知道血糖？</a>——為什麼不量測就沒有數值，以及你其實該改看什麼。</p>
+      <p><a href="./blog/">台灣外食的餐點對照</a>——滷肉飯與雞肉飯、牛肉麵與拉麵、水餃與鍋貼，哪個血糖衝比較兇。</p>
+    </div>
   </div>
 </section>
 
@@ -804,7 +816,7 @@
   // 不會被 opacity:0 永久藏住。
   var items = [];
   document.querySelectorAll('section').forEach(function (sec) {
-    sec.querySelectorAll('h2, .sec-lede, .statement p, .disclaimer, .appicon, .final .pill')
+    sec.querySelectorAll('h2, .sec-lede, .more, .statement p, .disclaimer, .appicon, .final .pill')
        .forEach(function (el) { items.push([el, 0]); });
     sec.querySelectorAll('.grid > .card, .ui-grid > .ui-frame, .photo-strip > .shot')
        .forEach(function (el, i) { items.push([el, 70 + i * 80]); });
