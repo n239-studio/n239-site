@@ -281,7 +281,12 @@
 
   /* ── Section scaffolding ── */
   section { padding: 90px 0; }
+  #faq { padding-bottom: 56px; }
   section.tight { padding: 40px 0; }
+  /* 健康聲明是一個小方塊，不是一個章節。夾在 section 的 90px 與 .final 的 130px
+     之間會變成兩條空白帶，所以自己收掉上下留白，並把相鄰兩段一起拉近。 */
+  section.legal { padding: 0; }
+  section.legal + .final, .final.after-legal { padding-top: 84px; }
   h2 {
     font-size: clamp(32px, 4.5vw, 52px);
     line-height: 1.12; letter-spacing: -1.4px;
@@ -688,7 +693,7 @@
   </div>
 </section>
 
-<section class="tight">
+<section class="legal">
   <div class="wrap">
     <div class="disclaimer">
       <b>健康聲明：</b>所有 GI/GL 與餐後反應均為 AI 模型估算，並非血糖測量、診斷或醫療建議。餐後感受也可能與睡眠、壓力、活動量等因素有關。若有糖尿病、正在接受治療或需要個人化醫療判斷，請洽詢合格醫療專業人員。
