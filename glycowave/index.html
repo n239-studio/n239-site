@@ -250,15 +250,48 @@
   .s-card.dark .s-big { color: #fff; font-size: 13.5px; font-weight: 600; }
 
   /* ── App UI showcase ── */
-  .ui-grid { display: grid; gap: 20px; grid-template-columns: 1fr; }
-  .shot-frame { margin: 0; }
-  .shot-frame img {
-    display: block; width: 100%; height: auto;
-    border: 1px solid var(--line); border-radius: 20px; background: #fff;
+  /* ── App 畫面輪播 ── */
+  .carousel { position: relative; }
+  .track {
+    display: flex; gap: 22px; overflow-x: auto; padding: 6px 0 10px;
+    scroll-snap-type: x mandatory; scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; scrollbar-width: none;
   }
-  .shot-frame figcaption { font-size: 14.5px; font-weight: 700; margin-top: 16px; }
-  .shot-frame figcaption span { display: block; font-weight: 400; font-size: 13px; color: var(--ink-soft); margin-top: 2px; }
-  @media (min-width: 720px) { .ui-grid { grid-template-columns: repeat(2, 1fr); } }
+  .track::-webkit-scrollbar { display: none; }
+  .track:focus-visible { outline: 2px solid var(--ink); outline-offset: 6px; border-radius: 12px; }
+  .phone-shot { flex: 0 0 auto; width: 380px; margin: 0; scroll-snap-align: start; }
+  @media (max-width: 640px) { .phone-shot { width: 76vw; max-width: 300px; } .track { gap: 16px; } }
+  .phone-shot img {
+    display: block; width: 100%; height: auto; background: #fff;
+    border: 1px solid var(--line); border-radius: 34px;
+    box-shadow: 0 18px 46px rgba(0,0,0,.10);
+  }
+  .phone-shot figcaption { font-size: 14.5px; font-weight: 700; margin-top: 18px; }
+  .phone-shot figcaption span { display: block; font-weight: 400; font-size: 13px; color: var(--ink-soft); margin-top: 3px; }
+
+  .c-nav { display: flex; align-items: center; gap: 14px; margin-top: 26px; }
+  .c-btn {
+    width: 44px; height: 44px; flex: none; border-radius: 50%;
+    border: 1px solid var(--line); background: #fff; color: var(--ink);
+    font-size: 17px; line-height: 1; cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: background .15s ease, border-color .15s ease, opacity .15s ease;
+  }
+  .c-btn:hover:not(:disabled) { background: #F6F6F6; border-color: #D0D0D0; }
+  .c-btn:disabled { opacity: .3; cursor: default; }
+  /* 圓點只在手機有意義：桌機一次看得到三張多，可捲動範圍不到一步，
+     四顆點會有三顆永遠到不了。桌機留箭頭就好。 */
+  .c-dots { display: none; gap: 8px; }
+  @media (max-width: 640px) { .c-dots { display: flex; } }
+  .c-dots button {
+    width: 8px; height: 8px; padding: 0; border: 0; border-radius: 50%;
+    background: var(--line); cursor: pointer; transition: background .2s ease, transform .2s ease;
+  }
+  .c-dots button[aria-current="true"] { background: var(--ink); transform: scale(1.25); }
+  .c-hint { margin-left: auto; font-size: 13px; color: var(--ink-mute); }
+  @media (max-width: 640px) { .c-hint { display: none; } }
+
+  @media (prefers-reduced-motion: reduce) { .track { scroll-behavior: auto; } }
   /* mini list (history screen) */
   .rows { display: flex; flex-direction: column; gap: 10px; padding-top: 6px; }
   .row { display: flex; gap: 12px; align-items: center; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 10px 12px; }
@@ -404,9 +437,9 @@
      縮到 0 的狀態掛在 .reveal 底下（由 JS 加），沒有 JS 時長條維持原高度。 */
 
   /* 卡片與按鈕的手感 */
-  .card, .shot-frame img, .shot { transition: transform .35s cubic-bezier(.22,.7,.3,1), box-shadow .35s cubic-bezier(.22,.7,.3,1); }
+  .card, .phone-shot img, .shot { transition: transform .35s cubic-bezier(.22,.7,.3,1), box-shadow .35s cubic-bezier(.22,.7,.3,1); }
   @media (hover: hover) {
-    .card:hover, .shot-frame img:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.07); }
+    .card:hover, .phone-shot img:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.07); }
     .shot:hover { transform: translateY(-4px); box-shadow: 0 14px 36px rgba(0,0,0,.09); }
     .shot img { transition: transform .6s cubic-bezier(.22,.7,.3,1); }
     .shot:hover img { transform: scale(1.04); }
@@ -441,7 +474,7 @@
     .card { padding: 26px 22px; }
     .card h3 { font-size: 21px; }
     .chip { width: 46px; height: 46px; border-radius: 12px; margin-bottom: 18px; }
-    .grid, .ui-grid, .photo-strip { gap: 14px; }
+    .grid, .photo-strip { gap: 14px; }
     .shot img { height: 240px; }
     .disclaimer { padding: 22px 20px; }
     .hero-grid { gap: 40px; }
@@ -575,27 +608,36 @@
   <div class="wrap">
     <h2><span class="nb">打開 app，</span><span class="nb">長這樣。</span></h2>
     <p class="sec-lede">分析、建議、養成、回顧——四個畫面就是整個循環。以下都是 app 的實際畫面。</p>
-    <div class="ui-grid">
-      <figure class="shot-frame">
-        <img src="./assets/app-meal.jpg" width="1000" height="966" loading="lazy" decoding="async"
-             alt="GlycoWave 餐點分析畫面：奶茶加奶油餅乾，GI 69，蛋白質 10%、碳水 66%、纖維 24%，並附一段平手補償建議"/>
-        <figcaption>先看這餐落在哪<span>GI、營養比例，以及一句講人話的補償建議</span></figcaption>
-      </figure>
-      <figure class="shot-frame">
-        <img src="./assets/app-suggest.jpg" width="1000" height="650" loading="lazy" decoding="async"
-             alt="GlycoWave 的下一餐建議：超商無糖高纖豆漿加茶葉蛋加鮮蔬關東煮，用來平衡今日偏高的澱粉與糖分"/>
-        <figcaption>下一餐怎麼救回來<span>給得出店名與品項，不是「請減少精緻澱粉」</span></figcaption>
-      </figure>
-      <figure class="shot-frame">
-        <img src="./assets/app-dino.jpg" width="1000" height="825" loading="lazy" decoding="async"
-             alt="GlycoWave 的小恐龍夥伴卡：小浪龍 Lv.6，今日活力 71，成長經驗進度條，以及記錄餐點、回報感受、散步 15 分鐘三項每日任務"/>
-        <figcaption>三件事都算進度<span>記錄、回報感受、散步——沒做也不會被扣</span></figcaption>
-      </figure>
-      <figure class="shot-frame">
-        <img src="./assets/app-trends.jpg" width="1000" height="666" loading="lazy" decoding="async"
-             alt="GlycoWave 身體感受分析：讓你精神好的食物是雞肉沙拉捲加無糖茶，讓你腦霧想睡的食物是炸雞便當加甜拿鐵"/>
-        <figcaption>哪些餐讓你撐到下班<span>記幾週之後，自己的模式會浮出來</span></figcaption>
-      </figure>
+    <div class="carousel">
+      <div class="track" tabindex="0" role="region" aria-label="app 實際畫面">
+        <figure class="phone-shot">
+          <img src="./assets/screen-zh-1-home.jpg" width="640" height="1390" loading="lazy" decoding="async" alt="GlycoWave 首頁：今日營養概覽顯示蛋白質 20%、碳水 54%、纖維 25%，平均 GI 65，下方是奶茶加奶油餅乾這一餐的分析"/>
+          <figcaption>今天吃了什麼，落在哪<span>營養概覽、平均 GI，以及每一餐的風險與補償建議</span></figcaption>
+        </figure>
+        <figure class="phone-shot">
+          <img src="./assets/screen-zh-2-next.jpg" width="640" height="1390" loading="lazy" decoding="async" alt="GlycoWave 的下一餐建議：超商無糖高纖豆漿加茶葉蛋加關東煮，下方是小浪龍 Lv.6 的夥伴卡與三項每日任務"/>
+          <figcaption>下一餐怎麼救回來<span>給得出店名與品項，還有一隻會跟著長大的小恐龍</span></figcaption>
+        </figure>
+        <figure class="phone-shot">
+          <img src="./assets/screen-zh-3-trends.jpg" width="640" height="1390" loading="lazy" decoding="async" alt="GlycoWave 身體感受分析：讓你精神好的食物是雞肉沙拉捲加無糖茶，讓你腦霧想睡的是炸雞便當加甜拿鐵"/>
+          <figcaption>哪些餐讓你撐到下班<span>本週感受分布，以及讓你精神好、讓你腦霧的食物</span></figcaption>
+        </figure>
+        <figure class="phone-shot">
+          <img src="./assets/screen-zh-4-history.jpg" width="640" height="1390" loading="lazy" decoding="async" alt="GlycoWave 飲食紀錄：今日能量統計顯示總餐數 3、吸收較快 2、吸收較慢 1，並提醒今天澱粉比例偏高"/>
+          <figcaption>一天回頭看一次<span>總餐數、吸收快慢，以及今天的一句提醒</span></figcaption>
+        </figure>
+      </div>
+      <div class="c-nav">
+        <button class="c-btn" type="button" data-dir="-1" aria-label="上一張">&#8592;</button>
+        <div class="c-dots">
+            <button type="button" aria-label="第 1 張" aria-current="true"></button>
+            <button type="button" aria-label="第 2 張"></button>
+            <button type="button" aria-label="第 3 張"></button>
+            <button type="button" aria-label="第 4 張"></button>
+        </div>
+        <button class="c-btn" type="button" data-dir="1" aria-label="下一張">&#8594;</button>
+        <span class="c-hint">左右滑動，或用方向鍵</span>
+      </div>
     </div>
     </div>
   </div>
@@ -723,6 +765,56 @@
 
 <script>
 (function () {
+  document.querySelectorAll('.carousel').forEach(function (root) {
+    var track = root.querySelector('.track');
+    var items = Array.prototype.slice.call(track.children);
+    var prev = root.querySelector('[data-dir="-1"]');
+    var next = root.querySelector('[data-dir="1"]');
+    var dots = Array.prototype.slice.call(root.querySelectorAll('.c-dots button'));
+    if (!items.length) return;
+
+    function step() {
+      if (items.length < 2) return items[0].offsetWidth;
+      return items[1].offsetLeft - items[0].offsetLeft;
+    }
+    function sync() {
+      var i = Math.max(0, Math.min(items.length - 1, Math.round(track.scrollLeft / step())));
+      dots.forEach(function (d, n) { d.setAttribute('aria-current', String(n === i)); });
+      // 捲到頭尾就停用對應按鈕，不要留一顆按了沒反應的。
+      // max 可能是 0（視窗夠寬、全部塞得下），那時兩顆都該停用。
+      var max = track.scrollWidth - track.clientWidth;
+      prev.disabled = track.scrollLeft <= 2;
+      next.disabled = max <= 2 || track.scrollLeft >= max - 2;
+    }
+    function go(dir) { track.scrollBy({ left: dir * step(), behavior: 'smooth' }); }
+
+    prev.addEventListener('click', function () { go(-1); });
+    next.addEventListener('click', function () { go(1); });
+    dots.forEach(function (d, n) {
+      d.addEventListener('click', function () { track.scrollTo({ left: n * step(), behavior: 'smooth' }); });
+    });
+    track.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
+    });
+
+    var ticking = false;
+    track.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () { ticking = false; sync(); });
+    }, { passive: true });
+    window.addEventListener('resize', sync, { passive: true });
+    // 圖片是 lazy 載入的，尺寸底定後要重新判斷一次可捲動範圍
+    window.addEventListener('load', sync);
+    if (window.ResizeObserver) new ResizeObserver(sync).observe(track);
+    sync();
+  });
+})();
+</script>
+
+<script>
+(function () {
   // 手機進場結束後才接上慢速浮動，避免兩段動畫打架
   var phone = document.querySelector('.phone');
   if (phone) {
@@ -739,7 +831,7 @@
   document.querySelectorAll('section').forEach(function (sec) {
     sec.querySelectorAll('h2, .sec-lede, .more, .statement p, .disclaimer, .appicon, .final .pill')
        .forEach(function (el) { items.push([el, 0]); });
-    sec.querySelectorAll('.grid > .card, .ui-grid > .shot-frame, .photo-strip > .shot')
+    sec.querySelectorAll('.grid > .card, .track > .phone-shot, .photo-strip > .shot')
        .forEach(function (el, i) { items.push([el, 70 + i * 80]); });
   });
   if (!items.length) return;

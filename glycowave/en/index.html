@@ -248,52 +248,48 @@
   .s-card.dark .s-big { color: #fff; font-size: 13.5px; font-weight: 600; }
 
   /* ── App UI showcase ── */
-  .ui-grid { display: grid; gap: 20px; grid-template-columns: 1fr; }
-  @media (min-width: 720px) { .ui-grid { grid-template-columns: repeat(2, 1fr); } }
-  .ui-frame {
-    border: 1px solid var(--line); border-radius: 26px; background: #FAFAFA;
-    padding: 22px 18px; overflow: hidden;
+  /* ── App 畫面輪播 ── */
+  .carousel { position: relative; }
+  .track {
+    display: flex; gap: 22px; overflow-x: auto; padding: 6px 0 10px;
+    scroll-snap-type: x mandatory; scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; scrollbar-width: none;
   }
-  .ui-frame .ui-title { font-size: 13px; font-weight: 700; color: var(--ink-mute); letter-spacing: 1px; margin-bottom: 16px; }
-  .ui-frame .ui-caption { font-size: 14.5px; font-weight: 700; margin-top: 18px; }
-  .ui-frame .ui-caption span { display: block; font-weight: 400; font-size: 13px; color: var(--ink-soft); margin-top: 2px; }
-
-  /* mini ring (walk screen) */
-  .ring-wrap { display: flex; align-items: center; justify-content: center; padding: 12px 0; }
-  .ring {
-    width: 132px; height: 132px; border-radius: 50%;
-    background: conic-gradient(var(--ink) 0 71%, #E8E8E8 71% 100%);
-    display: flex; align-items: center; justify-content: center;
+  .track::-webkit-scrollbar { display: none; }
+  .track:focus-visible { outline: 2px solid var(--ink); outline-offset: 6px; border-radius: 12px; }
+  .phone-shot { flex: 0 0 auto; width: 380px; margin: 0; scroll-snap-align: start; }
+  @media (max-width: 640px) { .phone-shot { width: 76vw; max-width: 300px; } .track { gap: 16px; } }
+  .phone-shot img {
+    display: block; width: 100%; height: auto; background: #fff;
+    border: 1px solid var(--line); border-radius: 34px;
+    box-shadow: 0 18px 46px rgba(0,0,0,.10);
   }
-  .ring-hole {
-    width: 104px; height: 104px; border-radius: 50%; background: #FAFAFA;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
+  .phone-shot figcaption { font-size: 14.5px; font-weight: 700; margin-top: 18px; }
+  .phone-shot figcaption span { display: block; font-weight: 400; font-size: 13px; color: var(--ink-soft); margin-top: 3px; }
+
+  .c-nav { display: flex; align-items: center; gap: 14px; margin-top: 26px; }
+  .c-btn {
+    width: 44px; height: 44px; flex: none; border-radius: 50%;
+    border: 1px solid var(--line); background: #fff; color: var(--ink);
+    font-size: 17px; line-height: 1; cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: background .15s ease, border-color .15s ease, opacity .15s ease;
   }
-  .ring-hole b { font-size: 20px; letter-spacing: -0.5px; }
-  .ring-hole small { font-size: 11px; color: var(--ink-mute); }
+  .c-btn:hover:not(:disabled) { background: #F6F6F6; border-color: #D0D0D0; }
+  .c-btn:disabled { opacity: .3; cursor: default; }
+  /* 圓點只在手機有意義：桌機一次看得到三張多，可捲動範圍不到一步，
+     四顆點會有三顆永遠到不了。桌機留箭頭就好。 */
+  .c-dots { display: none; gap: 8px; }
+  @media (max-width: 640px) { .c-dots { display: flex; } }
+  .c-dots button {
+    width: 8px; height: 8px; padding: 0; border: 0; border-radius: 50%;
+    background: var(--line); cursor: pointer; transition: background .2s ease, transform .2s ease;
+  }
+  .c-dots button[aria-current="true"] { background: var(--ink); transform: scale(1.25); }
+  .c-hint { margin-left: auto; font-size: 13px; color: var(--ink-mute); }
+  @media (max-width: 640px) { .c-hint { display: none; } }
 
-  /* mini bars (trends screen) */
-  .bars { display: flex; align-items: flex-end; gap: 10px; height: 130px; padding: 12px 6px 0; }
-  .bars i { flex: 1; background: #E4E4E4; border-radius: 8px 8px 4px 4px; }
-  .bars i.hi { background: var(--ink); }
-  .bars-labels { display: flex; gap: 10px; padding: 8px 6px 0; }
-  .bars-labels span { flex: 1; text-align: center; font-size: 10px; color: var(--ink-mute); }
-
-  /* ── Dinosaur companion card ── */
-  .dino-row { display: flex; align-items: center; gap: 14px; }
-  .dino-art { width: 84px; height: 70px; flex: none; fill: var(--ink); }
-  .dino-name { font-size: 15.5px; font-weight: 700; letter-spacing: -0.2px; }
-  .dino-tags { display: flex; gap: 6px; margin-top: 7px; flex-wrap: wrap; }
-  .dino-tags span { font-size: 10.5px; font-weight: 700; padding: 3px 9px; border-radius: 999px; background: #F1F1F1; color: var(--ink-soft); white-space: nowrap; }
-  .xp { margin-top: 16px; }
-  .xp-top { display: flex; justify-content: space-between; font-size: 10px; letter-spacing: 1.2px; font-weight: 700; color: var(--ink-mute); text-transform: uppercase; margin-bottom: 6px; }
-  .xp-bar { height: 6px; border-radius: 99px; background: #EEE; overflow: hidden; }
-  .xp-fill { height: 100%; width: 62%; border-radius: 99px; background: var(--ink); transform-origin: left center; }
-  .quests { display: flex; gap: 6px; margin-top: 12px; }
-  .quests span { flex: 1; text-align: center; font-size: 10px; font-weight: 700; padding: 7px 2px; border-radius: 999px; background: #F1F1F1; color: var(--ink-mute); }
-  .quests span.done { background: var(--ink); color: #fff; }
-
-
+  @media (prefers-reduced-motion: reduce) { .track { scroll-behavior: auto; } }
   /* mini list (history screen) */
   .rows { display: flex; flex-direction: column; gap: 10px; padding-top: 6px; }
   .row { display: flex; gap: 12px; align-items: center; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 10px 12px; }
@@ -426,26 +422,14 @@
   /* 步數圓環：@property 讓 conic-gradient 可以補間。
      不支援的瀏覽器會直接停在 71%（下面宣告的初始值），不會破圖。 */
   @property --ring-p { syntax: '<percentage>'; inherits: false; initial-value: 71%; }
-  .ring { --ring-p: 71%; background: conic-gradient(var(--ink) 0 var(--ring-p), #E8E8E8 var(--ring-p) 100%); }
-  @keyframes ringFill { from { --ring-p: 0%; } to { --ring-p: 71%; } }
-  .reveal.in .ring { animation: ringFill 1.3s cubic-bezier(.22,.7,.3,1) .2s backwards; }
 
   /* 長條圖：由下往上長，逐根錯開。
      縮到 0 的狀態掛在 .reveal 底下（由 JS 加），沒有 JS 時長條維持原高度。 */
-  .bars i { transform-origin: bottom center; }
-  .reveal .xp-fill { transform: scaleX(0); transition: transform 1.1s cubic-bezier(.22,.7,.3,1) .3s; }
-  .reveal.in .xp-fill { transform: scaleX(1); }
-  .reveal .bars i { transform: scaleY(0); transition: transform .7s cubic-bezier(.22,.7,.3,1); }
-  .reveal.in .bars i { transform: scaleY(1); }
-  .bars i:nth-child(1){transition-delay:.10s} .bars i:nth-child(2){transition-delay:.16s}
-  .bars i:nth-child(3){transition-delay:.22s} .bars i:nth-child(4){transition-delay:.28s}
-  .bars i:nth-child(5){transition-delay:.34s} .bars i:nth-child(6){transition-delay:.40s}
-  .bars i:nth-child(7){transition-delay:.46s}
 
   /* 卡片與按鈕的手感 */
-  .card, .ui-frame, .shot { transition: transform .35s cubic-bezier(.22,.7,.3,1), box-shadow .35s cubic-bezier(.22,.7,.3,1); }
+  .card, .phone-shot img, .shot { transition: transform .35s cubic-bezier(.22,.7,.3,1), box-shadow .35s cubic-bezier(.22,.7,.3,1); }
   @media (hover: hover) {
-    .card:hover, .ui-frame:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.07); }
+    .card:hover, .phone-shot img:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.07); }
     .shot:hover { transform: translateY(-4px); box-shadow: 0 14px 36px rgba(0,0,0,.09); }
     .shot img { transition: transform .6s cubic-bezier(.22,.7,.3,1); }
     .shot:hover img { transform: scale(1.04); }
@@ -462,7 +446,6 @@
     }
     .reveal { opacity: 1; transform: none; }
     .reveal .s-fill, .phone .s-fill { transform: scaleX(1); }
-    .reveal .bars i { transform: scaleY(1); }
   }
 
   /* ── 手機版垂直節奏 ──
@@ -481,9 +464,8 @@
     .card { padding: 26px 22px; }
     .card h3 { font-size: 21px; }
     .chip { width: 46px; height: 46px; border-radius: 12px; margin-bottom: 18px; }
-    .grid, .ui-grid, .photo-strip { gap: 14px; }
+    .grid, .photo-strip { gap: 14px; }
     .shot img { height: 240px; }
-    .ui-frame { padding: 20px 16px; }
     .disclaimer { padding: 22px 20px; }
     .hero-grid { gap: 40px; }
     footer { padding: 24px 0 40px; }
@@ -615,60 +597,35 @@
   <div class="wrap">
     <h2>This is what it looks like.</h2>
     <p class="sec-lede">Analyze, raise, walk, look back — four screens and the loop is done.</p>
-    <div class="ui-grid">
-      <div class="ui-frame">
-        <div class="ui-title">Meal analysis</div>
-        <div class="s-card">
-          <div class="s-label">Items identified</div>
-          <div class="s-items"><span>White rice</span><span>Fried pork chop</span><span>Braised egg</span><span>Blanched greens</span></div>
-        </div>
-        <div class="s-card">
-          <div class="s-label">How you may feel</div>
-          <div class="s-big">Afternoon may drag</div>
-          <div class="s-bar"><div class="s-fill"></div></div>
-        </div>
-        <div class="s-card dark">
-          <div class="s-label">One small move</div>
-          <div class="s-big">Start dinner with protein, cut the rice by a third.</div>
-        </div>
-        <div class="ui-caption">Check it read the dish right<span>Then risk, macros and how you may feel</span></div>
+    <div class="carousel">
+      <div class="track" tabindex="0" role="region" aria-label="Actual app screens">
+        <figure class="phone-shot">
+          <img src="./assets/screen-en-1-home.jpg" width="640" height="1390" loading="lazy" decoding="async" alt="GlycoWave home screen showing today's nutrition at 20% protein, 54% carbs, 25% fiber, average GI 65, and an analysis of a milk tea and butter cookie"/>
+          <figcaption>What you ate, and where it lands<span>Today&rsquo;s macros, average GI, and each meal&rsquo;s risk and balance tip</span></figcaption>
+        </figure>
+        <figure class="phone-shot">
+          <img src="./assets/screen-en-2-dino.jpg" width="640" height="1390" loading="lazy" decoding="async" alt="GlycoWave dino room showing Wavy at level 6, growth XP 65 of 100, daily vitality 71, and materials earned"/>
+          <figcaption>A companion that grows with you<span>Growth XP, daily vitality, and materials earned from logging and walking</span></figcaption>
+        </figure>
+        <figure class="phone-shot">
+          <img src="./assets/screen-en-3-trends.jpg" width="640" height="1390" loading="lazy" decoding="async" alt="GlycoWave trends screen listing foods that energize you and foods that make you drowsy"/>
+          <figcaption>Which lunches carry you to the end of the day<span>The week&rsquo;s feelings, and the foods behind them</span></figcaption>
+        </figure>
+        <figure class="phone-shot">
+          <img src="./assets/screen-en-4-history.jpg" width="640" height="1390" loading="lazy" decoding="async" alt="GlycoWave meal history showing today's energy with 3 meals, 2 faster and 1 slower, plus today's nutrition"/>
+          <figcaption>One look back a day<span>Meals logged, how fast they landed, and one note for today</span></figcaption>
+        </figure>
       </div>
-      <div class="ui-frame">
-        <div class="ui-title">My dinosaur</div>
-        <div class="dino-row">
-          <svg class="dino-art" viewBox="0 0 108 94" role="img" aria-label="Little dinosaur companion">
-            <path d="M28 76 C10 76 3 63 9 51 C15 61 22 66 32 66 Z"/>
-            <path d="M38 38 L45 20 L53 37 Z"/><path d="M54 32 L62 12 L70 31 Z"/><path d="M70 34 L78 16 L86 37 Z"/>
-            <path d="M32 80 C22 80 16 70 18 58 C21 40 38 28 58 28 C80 28 96 40 96 58 C96 72 86 80 72 80 Z"/>
-            <rect x="36" y="74" width="18" height="12" rx="6"/><rect x="64" y="74" width="18" height="12" rx="6"/>
-            <circle cx="78" cy="50" r="5.2" fill="#fff"/><circle cx="79.6" cy="50" r="2.3" fill="#0A0A0A"/>
-          </svg>
-          <div>
-            <div class="dino-name">Wavy</div>
-            <div class="dino-tags"><span>Lv.7</span><span>Vitality 68</span></div>
-          </div>
+      <div class="c-nav">
+        <button class="c-btn" type="button" data-dir="-1" aria-label="Previous screen">&#8592;</button>
+        <div class="c-dots">
+            <button type="button" aria-label="Screen 1" aria-current="true"></button>
+            <button type="button" aria-label="Screen 2"></button>
+            <button type="button" aria-label="Screen 3"></button>
+            <button type="button" aria-label="Screen 4"></button>
         </div>
-        <div class="xp">
-          <div class="xp-top"><span>Growth XP</span><span>62 / 100</span></div>
-          <div class="xp-bar"><div class="xp-fill"></div></div>
-        </div>
-        <div class="quests"><span class="done">Log a meal</span><span class="done">How you felt</span><span>Walk 15 min</span></div>
-        <div class="ui-caption">All three count<span>Logging, feedback and the walk each earn materials and XP</span></div>
-      </div>
-      <div class="ui-frame">
-        <div class="ui-title">Post-meal walk</div>
-        <div class="ring-wrap">
-          <div class="ring"><div class="ring-hole"><b>9:12</b><small>/ 15 min</small></div></div>
-        </div>
-        <div class="ui-caption">Finish it and earn a vitality leaf<span>Steps sync from HealthKit</span></div>
-      </div>
-      <div class="ui-frame">
-        <div class="ui-title">Weekly trends</div>
-        <div class="bars">
-          <i style="height:52%"></i><i style="height:78%" class="hi"></i><i style="height:40%"></i><i style="height:64%" class="hi"></i><i style="height:88%"></i><i style="height:58%" class="hi"></i><i style="height:34%"></i>
-        </div>
-        <div class="bars-labels"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div>
-        <div class="ui-caption">See your own rhythm<span>Streak days, steady meals, activity trend</span></div>
+        <button class="c-btn" type="button" data-dir="1" aria-label="Next screen">&#8594;</button>
+        <span class="c-hint">Swipe, or use the arrow keys</span>
       </div>
     </div>
   </div>
@@ -791,6 +748,56 @@
 
 <script>
 (function () {
+  document.querySelectorAll('.carousel').forEach(function (root) {
+    var track = root.querySelector('.track');
+    var items = Array.prototype.slice.call(track.children);
+    var prev = root.querySelector('[data-dir="-1"]');
+    var next = root.querySelector('[data-dir="1"]');
+    var dots = Array.prototype.slice.call(root.querySelectorAll('.c-dots button'));
+    if (!items.length) return;
+
+    function step() {
+      if (items.length < 2) return items[0].offsetWidth;
+      return items[1].offsetLeft - items[0].offsetLeft;
+    }
+    function sync() {
+      var i = Math.max(0, Math.min(items.length - 1, Math.round(track.scrollLeft / step())));
+      dots.forEach(function (d, n) { d.setAttribute('aria-current', String(n === i)); });
+      // 捲到頭尾就停用對應按鈕，不要留一顆按了沒反應的。
+      // max 可能是 0（視窗夠寬、全部塞得下），那時兩顆都該停用。
+      var max = track.scrollWidth - track.clientWidth;
+      prev.disabled = track.scrollLeft <= 2;
+      next.disabled = max <= 2 || track.scrollLeft >= max - 2;
+    }
+    function go(dir) { track.scrollBy({ left: dir * step(), behavior: 'smooth' }); }
+
+    prev.addEventListener('click', function () { go(-1); });
+    next.addEventListener('click', function () { go(1); });
+    dots.forEach(function (d, n) {
+      d.addEventListener('click', function () { track.scrollTo({ left: n * step(), behavior: 'smooth' }); });
+    });
+    track.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
+    });
+
+    var ticking = false;
+    track.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () { ticking = false; sync(); });
+    }, { passive: true });
+    window.addEventListener('resize', sync, { passive: true });
+    // 圖片是 lazy 載入的，尺寸底定後要重新判斷一次可捲動範圍
+    window.addEventListener('load', sync);
+    if (window.ResizeObserver) new ResizeObserver(sync).observe(track);
+    sync();
+  });
+})();
+</script>
+
+<script>
+(function () {
   // 手機進場結束後才接上慢速浮動，避免兩段動畫打架
   var phone = document.querySelector('.phone');
   if (phone) {
@@ -807,7 +814,7 @@
   document.querySelectorAll('section').forEach(function (sec) {
     sec.querySelectorAll('h2, .sec-lede, .statement p, .disclaimer, .appicon, .final .pill')
        .forEach(function (el) { items.push([el, 0]); });
-    sec.querySelectorAll('.grid > .card, .ui-grid > .ui-frame, .photo-strip > .shot')
+    sec.querySelectorAll('.grid > .card, .track > .phone-shot, .photo-strip > .shot')
        .forEach(function (el, i) { items.push([el, 70 + i * 80]); });
   });
   if (!items.length) return;
