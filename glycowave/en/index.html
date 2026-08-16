@@ -250,9 +250,31 @@
   /* ── App screen carousel ── */
   .showcase-section { overflow: hidden; background: #fff; padding: 88px 0 72px; }
   .showcase-layout { width: min(1680px, calc(100% - 96px)); margin: 0 auto; }
-  .showcase-copy { max-width: 760px; margin-bottom: 50px; }
-  .showcase-copy h2 { font-size: clamp(34px, 4vw, 58px); margin-bottom: 16px; }
-  .showcase-copy .sec-lede { max-width: 720px; margin: 0; }
+  /* 兩欄：左邊標題／說明／控制項，右邊手機。
+     手機那一格橫跨兩列，左邊上下兩塊分別靠下、靠上，就會在手機高度中間會合。 */
+  .showcase-layout {
+    display: grid; grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: "head phone" "ctrl phone";
+    column-gap: clamp(40px, 5vw, 80px); row-gap: 34px; align-items: start;
+  }
+  .showcase-head { grid-area: head; align-self: end; }
+  .showcase-head h2 { font-size: clamp(34px, 4vw, 58px); margin-bottom: 16px; }
+  .showcase-head .sec-lede { max-width: 640px; margin: 0; font-size: 18px; }
+  .showcase-controls { grid-area: ctrl; align-self: start; }
+  .carousel { grid-area: phone; }
+
+  /* 每張的說明也疊在同一格，容器高度取最高的那則，切換時按鈕不會上下跳 */
+  .shot-copy { display: grid; margin-bottom: 34px; }
+  .shot-copy-item {
+    grid-area: 1 / 1; margin: 0; font-size: 25px; line-height: 1.4; font-weight: 700; color: var(--ink); letter-spacing: -0.5px;
+    opacity: 0; visibility: hidden; transform: translateY(8px);
+    transition: opacity .45s ease, transform .45s cubic-bezier(.22,.7,.3,1), visibility .45s;
+  }
+  .shot-copy-item.is-active { opacity: 1; visibility: visible; transform: none; }
+  .shot-copy-item span {
+    display: block; font-weight: 400; font-size: 16px; line-height: 1.7;
+    color: var(--ink-soft); margin-top: 10px; max-width: 560px;
+  }
   .carousel { position: relative; min-width: 0; }
   /* 一次只顯示一張：四張疊在同一個 grid 格子裡，容器高度自動等於最高的那張。
      先前用固定高度 + overflow:hidden，說明文字就被裁掉了。 */
@@ -261,7 +283,7 @@
   }
   .track:focus-visible { outline: 2px solid var(--ink); outline-offset: 6px; border-radius: 12px; }
   .phone-shot {
-    grid-area: 1 / 1; width: clamp(300px, 30vw, 440px); margin: 0;
+    grid-area: 1 / 1; width: clamp(300px, 26vw, 360px); margin: 0;
     opacity: 0; visibility: hidden; transform: translateY(10px);
     transition: opacity .5s ease, transform .5s cubic-bezier(.22,.7,.3,1), visibility .5s;
   }
@@ -287,10 +309,8 @@
   .device-screen img {
     display: block; width: 100%; height: auto; margin: 0; background: #fff;
   }
-  .phone-shot figcaption { color: var(--ink); font-size: 18px; line-height: 1.45; font-weight: 700; padding: 24px 8px 0; text-align: center; }
-  .phone-shot figcaption span { display: block; font-weight: 400; font-size: 15px; line-height: 1.65; color: var(--ink-mute); margin-top: 7px; }
 
-  .c-nav { display: flex; justify-content: center; align-items: center; gap: 16px; margin-top: 26px; }
+  .c-nav { display: flex; justify-content: flex-start; align-items: center; gap: 16px; }
   .c-dots { display: flex; gap: 9px; }
   .c-dots button {
     width: 9px; height: 9px; padding: 0; border: 0; border-radius: 50%;
@@ -310,14 +330,18 @@
   @media (max-width: 760px) {
     .showcase-section { padding: 64px 0 52px; }
     .showcase-layout { width: calc(100% - 40px); }
-    .showcase-copy { margin-bottom: 34px; }
-    .showcase-copy h2 { font-size: clamp(32px, 10vw, 44px); }
+    .showcase-layout { grid-template-columns: 1fr; grid-template-areas: "head" "phone" "ctrl"; row-gap: 26px; }
+    .showcase-head, .showcase-controls { align-self: auto; }
+    .showcase-head h2 { font-size: clamp(32px, 10vw, 44px); }
+    .carousel { justify-self: center; }
+    .shot-copy { margin-bottom: 22px; text-align: center; }
+    .shot-copy-item { font-size: 20px; }
+    .shot-copy-item span { font-size: 15px; margin-left: auto; margin-right: auto; }
+    .c-nav { justify-content: center; }
     .track { padding-bottom: 6px; }
-    .phone-shot { width: min(88vw, 360px); }
+    .phone-shot { width: min(84vw, 340px); }
     .device-frame { width: min(calc(100% - 8px), 292px); border-radius: 46px; }
     .device-screen { border-radius: 37px; }
-    .phone-shot figcaption { padding: 18px 10px 0; font-size: 17px; }
-    .phone-shot figcaption span { font-size: 14px; }
     .c-nav { margin-top: 18px; }
   }
 
@@ -630,30 +654,18 @@
 
 <section class="showcase-section">
   <div class="showcase-layout">
-    <div class="showcase-copy">
+    <div class="showcase-head">
       <h2>This is what it looks like.</h2>
       <p class="sec-lede">Analyze, raise, walk, look back — four screens and the loop is done.</p>
     </div>
-    <div class="carousel">
-      <div class="track" tabindex="0" role="region" aria-label="Actual app screens">
-        <figure class="phone-shot">
-          <div class="shot-media"><div class="device-frame"><div class="device-screen"><img src="./assets/screen-en-1-home.jpg" width="640" height="1390" loading="lazy" decoding="async" alt="GlycoWave home screen showing today's nutrition at 20% protein, 54% carbs, 25% fiber, average GI 65, and an analysis of a milk tea and butter cookie"/></div></div></div>
-          <figcaption>What you ate, and where it lands<span>Today&rsquo;s macros, average GI, and each meal&rsquo;s risk and balance tip</span></figcaption>
-        </figure>
-        <figure class="phone-shot">
-          <div class="shot-media"><div class="device-frame"><div class="device-screen"><img src="./assets/screen-en-2-dino.jpg" width="640" height="1390" loading="lazy" decoding="async" alt="GlycoWave dino room showing Wavy at level 6, growth XP 65 of 100, daily vitality 71, and materials earned"/></div></div></div>
-          <figcaption>A companion that grows with you<span>Growth XP, daily vitality, and materials earned from logging and walking</span></figcaption>
-        </figure>
-        <figure class="phone-shot">
-          <div class="shot-media"><div class="device-frame"><div class="device-screen"><img src="./assets/screen-en-3-trends.jpg" width="640" height="1390" loading="lazy" decoding="async" alt="GlycoWave trends screen listing foods that energize you and foods that make you drowsy"/></div></div></div>
-          <figcaption>Which lunches carry you to the end of the day<span>The week&rsquo;s feelings, and the foods behind them</span></figcaption>
-        </figure>
-        <figure class="phone-shot">
-          <div class="shot-media"><div class="device-frame"><div class="device-screen"><img src="./assets/screen-en-4-history.jpg" width="640" height="1390" loading="lazy" decoding="async" alt="GlycoWave meal history showing today's energy with 3 meals, 2 faster and 1 slower, plus today's nutrition"/></div></div></div>
-          <figcaption>One look back a day<span>Meals logged, how fast they landed, and one note for today</span></figcaption>
-        </figure>
-      </div>
-      <div class="c-nav">
+    <div class="showcase-controls">
+        <div class="shot-copy">
+          <p class="shot-copy-item is-active">What you ate, and where it lands<span>Today&rsquo;s macros, average GI, and each meal&rsquo;s risk and balance tip</span></p>
+          <p class="shot-copy-item">A companion that grows with you<span>Growth XP, daily vitality, and materials earned from logging and walking</span></p>
+          <p class="shot-copy-item">Which lunches carry you to the end of the day<span>The week&rsquo;s feelings, and the foods behind them</span></p>
+          <p class="shot-copy-item">One look back a day<span>Meals logged, how fast they landed, and one note for today</span></p>
+        </div>
+<div class="c-nav">
         <button class="c-btn" type="button" data-dir="-1" aria-label="Previous screen">&#8592;</button>
                 <div class="c-dots">
           <button type="button" aria-label="Screen 1" aria-current="true"></button>
@@ -664,6 +676,23 @@
 <button class="c-btn" type="button" data-dir="1" aria-label="Next screen">&#8594;</button>
       </div>
     </div>
+
+    <div class="carousel">
+      <div class="track" tabindex="0" role="region" aria-label="Actual app screens">
+        <figure class="phone-shot">
+          <div class="shot-media"><div class="device-frame"><div class="device-screen"><img src="./assets/screen-en-1-home.jpg" width="640" height="1390" loading="lazy" decoding="async" alt="GlycoWave home screen showing today's nutrition at 20% protein, 54% carbs, 25% fiber, average GI 65, and an analysis of a milk tea and butter cookie"/></div></div></div>
+        </figure>
+        <figure class="phone-shot">
+          <div class="shot-media"><div class="device-frame"><div class="device-screen"><img src="./assets/screen-en-2-dino.jpg" width="640" height="1390" loading="lazy" decoding="async" alt="GlycoWave dino room showing Wavy at level 6, growth XP 65 of 100, daily vitality 71, and materials earned"/></div></div></div>
+        </figure>
+        <figure class="phone-shot">
+          <div class="shot-media"><div class="device-frame"><div class="device-screen"><img src="./assets/screen-en-3-trends.jpg" width="640" height="1390" loading="lazy" decoding="async" alt="GlycoWave trends screen listing foods that energize you and foods that make you drowsy"/></div></div></div>
+        </figure>
+        <figure class="phone-shot">
+          <div class="shot-media"><div class="device-frame"><div class="device-screen"><img src="./assets/screen-en-4-history.jpg" width="640" height="1390" loading="lazy" decoding="async" alt="GlycoWave meal history showing today's energy with 3 meals, 2 faster and 1 slower, plus today's nutrition"/></div></div></div>
+        </figure>
+      </div>
+            </div>
   </div>
 </section>
 
@@ -791,6 +820,7 @@
     var prev = section.querySelector('[data-dir="-1"]');
     var next = section.querySelector('[data-dir="1"]');
     var dots = Array.prototype.slice.call(section.querySelectorAll('.c-dots button'));
+    var copies = Array.prototype.slice.call(section.querySelectorAll('.shot-copy-item'));
     var current = 0;
     var timer;
     var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -803,6 +833,10 @@
         item.classList.toggle('is-active', on);
         // 非作用中的那幾張要真的退出無障礙樹，不然螢幕閱讀器會唸到四份
         item.setAttribute('aria-hidden', String(!on));
+      });
+      copies.forEach(function (c, n) {
+        c.classList.toggle('is-active', n === current);
+        c.setAttribute('aria-hidden', String(n !== current));
       });
       dots.forEach(function (d, n) { d.setAttribute('aria-current', String(n === current)); });
     }
