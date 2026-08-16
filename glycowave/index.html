@@ -62,6 +62,7 @@
         "priceCurrency": "TWD",
         "description": "免費版每天可分析 3 餐、保留 3 天紀錄；Pro 解除上限，含 3 天免費試用。"
       },
+      "installUrl": "https://testflight.apple.com/join/VMH9QE2m",
       "publisher": { "@id": "https://n239.xyz/#org" },
       "disclaimer": "所有 GI/GL 與餐後反應均為 AI 模型估算，並非血糖測量、診斷或醫療建議。"
     },
@@ -196,9 +197,6 @@
   }
   .pill:hover { background: var(--pill-hover); }
   .pill.ghost { background: transparent; color: var(--ink); border-color: var(--line); }
-  /* 尚無 App Store 連結前：外觀一致但不可點，避免死連結跳回頁首 */
-  .pill-soon { cursor: default; }
-  .pill-soon:hover { background: var(--ink); }
   .pill.ghost:hover { background: #F6F6F6; }
   nav .pill { padding: 11px 24px; font-size: 14px; }
 
@@ -433,8 +431,8 @@
     .shot:hover img { transform: scale(1.04); }
   }
   .pill { transition: background .18s ease, transform .18s cubic-bezier(.22,.7,.3,1); }
-  @media (hover: hover) { .pill:not(.pill-soon):hover { transform: translateY(-2px); } }
-  .pill:not(.pill-soon):active { transform: translateY(0) scale(.98); }
+  @media (hover: hover) { .pill:hover { transform: translateY(-2px); } }
+  .pill:active { transform: translateY(0) scale(.98); }
 
   /* 系統設定要求減少動態時，全部關閉 */
   @media (prefers-reduced-motion: reduce) {
@@ -483,7 +481,7 @@
       <a href="#faq">常見問題</a>
       <a href="./blog/">文章</a>
       <span class="lang"><a href="./" aria-current="page">中</a><span>/</span><a href="./en/">EN</a></span>
-      <a class="pill" href="#download">App Store 即將上線</a>
+      <a class="pill" href="https://testflight.apple.com/join/VMH9QE2m">參與公測</a>
     </div>
   </nav>
 </div>
@@ -494,9 +492,9 @@
       <h1>拍一餐，<br/><span class="nb">少一點</span><span class="nb">下午昏沉。</span></h1>
       <p class="lede">給外食上班族的 AI 飲食助手。拍下或寫下今天這餐，快速看懂它和你下午狀態的關係——為什麼想睡、為什麼嘴饞，還有下一餐怎麼救回來。</p>
       <div class="cta-row">
-        <a class="pill" href="#download">App Store 即將上線</a>
+        <a class="pill" href="https://testflight.apple.com/join/VMH9QE2m">參與公測</a>
         <a class="pill ghost" href="#how">看看怎麼用</a>
-        <span class="cta-note">免費下載 · <a href="./no-cgm/">不用戴儀器</a> · 不用算熱量<br/>免費版每天可分析 3 餐、保留 3 天紀錄；Pro 解除上限，含 3 天免費試用。</span>
+        <span class="cta-note">透過 TestFlight 安裝 · <a href="./no-cgm/">不用戴儀器</a> · 不用算熱量<br/>免費版每天可分析 3 餐、保留 3 天紀錄；Pro 解除上限，含 3 天免費試用。</span>
       </div>
     </div>
     <div class="phone-zone">
@@ -736,7 +734,7 @@
     <img class="appicon" src="./assets/appicon.png" alt="GlycoWave app icon"/>
     <h2><span class="nb">先從看懂</span><span class="nb">今天這餐</span><span class="nb">開始。</span></h2>
     <p class="sec-lede" style="margin-bottom:40px;">不用一次改變很多。</p>
-    <span class="pill pill-soon" role="text">App Store 即將上線</span>
+    <a class="pill" href="https://testflight.apple.com/join/VMH9QE2m">參與公測</a>
   </div>
 </section>
 

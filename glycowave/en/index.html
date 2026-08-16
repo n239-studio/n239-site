@@ -60,6 +60,7 @@
         "priceCurrency": "USD",
         "description": "Free tier analyses 3 meals a day and keeps 3 days of history. Pro removes both limits and includes a 3-day free trial."
       },
+      "installUrl": "https://testflight.apple.com/join/VMH9QE2m",
       "publisher": { "@id": "https://n239.xyz/#org" },
       "disclaimer": "All GI/GL figures and post-meal responses are AI model estimates — not glucose measurements, diagnoses or medical advice."
     },
@@ -194,9 +195,6 @@
   }
   .pill:hover { background: var(--pill-hover); }
   .pill.ghost { background: transparent; color: var(--ink); border-color: var(--line); }
-  /* 尚無 App Store 連結前：外觀一致但不可點，避免死連結跳回頁首 */
-  .pill-soon { cursor: default; }
-  .pill-soon:hover { background: var(--ink); }
   .pill.ghost:hover { background: #F6F6F6; }
   nav .pill { padding: 11px 24px; font-size: 14px; }
 
@@ -431,8 +429,8 @@
     .shot:hover img { transform: scale(1.04); }
   }
   .pill { transition: background .18s ease, transform .18s cubic-bezier(.22,.7,.3,1); }
-  @media (hover: hover) { .pill:not(.pill-soon):hover { transform: translateY(-2px); } }
-  .pill:not(.pill-soon):active { transform: translateY(0) scale(.98); }
+  @media (hover: hover) { .pill:hover { transform: translateY(-2px); } }
+  .pill:active { transform: translateY(0) scale(.98); }
 
   /* 系統設定要求減少動態時，全部關閉 */
   @media (prefers-reduced-motion: reduce) {
@@ -480,7 +478,7 @@
       <a href="#features">Features</a>
       <a href="#faq">FAQ</a>
       <span class="lang"><a href="../">中</a><span>/</span><a href="./" aria-current="page">EN</a></span>
-      <a class="pill" href="#download">Coming to the App Store</a>
+      <a class="pill" href="https://testflight.apple.com/join/VMH9QE2m">Join the beta</a>
     </div>
   </nav>
 </div>
@@ -491,9 +489,9 @@
       <h1>Photo a meal.<br/>Skip the slump.</h1>
       <p class="lede">Built for people who eat out. Snap or type today’s meal and see how it connects to your afternoon — why you get sleepy, why you crave sweets, and what to do about it next meal.</p>
       <div class="cta-row">
-        <a class="pill" href="#download">Coming to the App Store</a>
+        <a class="pill" href="https://testflight.apple.com/join/VMH9QE2m">Join the beta</a>
         <a class="pill ghost" href="#how">See how it works</a>
-        <span class="cta-note">Free to download · No device to wear · No calorie counting<br/>Free tier: 3 analyses a day and 3 days of history. Pro removes the limits, with a 3-day free trial.</span>
+        <span class="cta-note">Installs via TestFlight · No device to wear · No calorie counting<br/>Free tier: 3 analyses a day and 3 days of history. Pro removes the limits, with a 3-day free trial.</span>
       </div>
     </div>
     <div class="phone-zone">
@@ -732,7 +730,7 @@
     <img class="appicon" src="../assets/appicon.png" alt="GlycoWave app icon"/>
     <h2>Start with today’s meal.</h2>
     <p class="sec-lede" style="margin-bottom:40px;">You don’t have to change much at once.</p>
-    <span class="pill pill-soon" role="text">Coming to the App Store</span>
+    <a class="pill" href="https://testflight.apple.com/join/VMH9QE2m">Join the beta</a>
   </div>
 </section>
 
