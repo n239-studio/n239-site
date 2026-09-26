@@ -122,3 +122,20 @@ CGM 回答「我現在血糖多少」。GlycoWave 回答「我下一餐該怎麼
 - [飯後想睡就是血糖高嗎？](https://n239.xyz/glycowave/blog/fanhou-xiangshui-shi-xuetang-gao-ma/)：感受不能當血糖數字；症狀反覆應就醫。
 - [CGM、血糖機與 AI 餐點估算差在哪？](https://n239.xyz/glycowave/blog/cgm-xuetangji-ai-gusuan-chayi/)：區分量測工具與餐點 AI 估算。
 - [糖尿病日常管理清單](https://n239.xyz/glycowave/blog/tangniaobing-richang-guanli-qingdan/)：飲食、藥物、實測資料與定期回診。
+
+## 文章：外食、生活情境與就醫準備
+
+以下各篇同樣附官方醫療或公衛來源。這些文章提供一般資訊；App 的餐點估算不是個人血糖數值。
+
+- [糖尿病可以吃水果嗎？](https://n239.xyz/glycowave/blog/tangniaobing-keyi-chi-shuiguo-ma/)：整顆水果、果汁與實際份量的差別。
+- [地瓜、玉米、南瓜算蔬菜嗎？](https://n239.xyz/glycowave/blog/digua-yumi-nangua-suan-shucai-ma/)：外食餐盤如何辨認澱粉性配菜。
+- [糖尿病早餐怎麼吃？](https://n239.xyz/glycowave/blog/tangniaobing-zaocan-zenme-chi/)：早餐店與超商的整餐搭配。
+- [下午三點嘴饞就是低血糖嗎？](https://n239.xyz/glycowave/blog/xiawu-zuichan-shi-di-xuetang-ma/)：感受不能取代量測，用藥者須遵循個人計畫。
+- [睡眠不足會影響血糖嗎？](https://n239.xyz/glycowave/blog/shuimian-buzu-xuetang-guanli/)：記錄睡眠與餐點，不以單次疲倦推斷血糖。
+- [壓力大會影響血糖嗎？](https://n239.xyz/glycowave/blog/yali-xuetang-guanli/)：壓力、睡眠與飲食要一起看。
+- [餐後血糖什麼時候量？](https://n239.xyz/glycowave/blog/canhou-xuetang-shenme-shihou-liang/)：量測時點、頻率與目的依個人醫囑。
+- [外食份量怎麼估？](https://n239.xyz/glycowave/blog/waishi-fenliang-zenme-gu/)：從主食、配菜、飲料及包裝份數看起。
+- [糖尿病可以吃澱粉嗎？](https://n239.xyz/glycowave/blog/tangniaobing-keyi-chi-dianfen-ma/)：飯、麵、地瓜的份量與整餐搭配。
+- [全穀飯和白飯怎麼選？](https://n239.xyz/glycowave/blog/quangu-fan-baifan-zenme-xuan/)：纖維、份量與原料標示。
+- [糖尿病前期，生活上可以先做什麼？](https://n239.xyz/glycowave/blog/tangniaobing-qianqi-shenghuo-zenme-zuo/)：先確認檢驗，再討論可持續的改變。
+- [看營養師前要準備什麼？](https://n239.xyz/glycowave/blog/yingyangshi-men-zhen-zenme-zhunbei/)：餐點、實際量測、檢驗與問題清單。
