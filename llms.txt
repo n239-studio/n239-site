@@ -156,3 +156,20 @@ CGM 回答「我現在血糖多少」。GlycoWave 回答「我下一餐該怎麼
 - [聚餐吃到飽怎麼選？](https://n239.xyz/glycowave/blog/jucan-chidaobao-zenme-xuan/)：先看完整選項，再記自己實際吃的份量。
 - [超商加工食品怎麼挑？](https://n239.xyz/glycowave/blog/chaoshang-jiagong-shipin-zenme-kan/)：先看每份、碳水化合物和整餐搭配。
 - [飲食紀錄怎麼做才有用？](https://n239.xyz/glycowave/blog/yinshi-jilu-zenme-zuo/)：時間、品項、份量、飲料和感受分開記。
+
+## 文章：營養疑問與外食點餐
+
+以下文章均附官方醫學或公衛資料，說明一般飲食與生活選擇。GlycoWave 可記錄餐點和主觀感受，並提供 AI 餐點估算；它不量測血糖，也不能制定個人醫療計畫。
+
+- [膳食纖維是什麼？外食怎麼補？](https://n239.xyz/glycowave/blog/shan-shi-xianwei-waishi-zenme-bu/)：從蔬菜、整顆水果與全穀看整餐。
+- [糖尿病一定要低醣嗎？](https://n239.xyz/glycowave/blog/tangniaobing-yiding-yao-di-tang-ma/)：醣類份量、品質與個人飲食計畫。
+- [忙到沒吃早餐，午餐怎麼安排？](https://n239.xyz/glycowave/blog/meichi-zaocan-wucan-zenme-anpai/)：漏餐後仍以整餐組成與實際份量規劃。
+- [無糖豆漿、鮮奶、燕麥奶怎麼選？](https://n239.xyz/glycowave/blog/wutang-doujiang-xiannai-yanmainai/)：看每份、整瓶份數與碳水化合物。
+- [原味優格和調味優格怎麼選？](https://n239.xyz/glycowave/blog/yuanwei-youge-diaowei-youge-zenme-xuan/)：乳品、加糖和配料分開看。
+- [燕麥片、早餐穀片怎麼挑？](https://n239.xyz/glycowave/blog/yanmaipian-gupian-zenme-tiao/)：看原料、份量、糖與纖維。
+- [沙拉一定低醣嗎？](https://n239.xyz/glycowave/blog/shala-yiding-di-tang-ma/)：醬料、麵包丁、玉米與蛋白質一起看。
+- [素食外食怎麼搭？](https://n239.xyz/glycowave/blog/su-shi-waishi-zenme-pei/)：辨認豆類、主食、蔬菜與加工素料。
+- [燒肉聚餐怎麼點？](https://n239.xyz/glycowave/blog/shaorou-jucan-zenme-dian/)：肉之外也看飯、醬汁與飲料。
+- [義大利麵、披薩怎麼選？](https://n239.xyz/glycowave/blog/yidalimian-pisa-zenme-xuan/)：先看自己吃的主食份量與套餐內容。
+- [久坐上班族怎麼安排活動？](https://n239.xyz/glycowave/blog/jiuzuo-shangbanzu-ruhe-huodong/)：從可持續的走動與日常活動開始。
+- [外食鈉含量怎麼看？](https://n239.xyz/glycowave/blog/waishi-na-hanliang-zenme-kan/)：包裝標示、湯品與醬料都要留意。
