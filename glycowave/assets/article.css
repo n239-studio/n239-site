@@ -112,6 +112,18 @@ td { color: var(--ink-soft); }
 }
 .disclaimer b { color: var(--ink-soft); }
 
+.article-app-cta {
+  margin: 36px 0 8px; padding: 26px;
+  border: 1px solid var(--line); border-radius: 18px; background: var(--wash);
+}
+.article-app-cta h2 { margin: 0 0 12px; font-size: 22px; }
+.article-app-cta p { font-size: 16px; }
+.article-app-cta .pill { color: #fff; }
+.references { border-top: 1px solid var(--line); margin-top: 48px; }
+.references h2 { margin-top: 30px; font-size: 22px; }
+.references ol { font-size: 15px; }
+.references li { overflow-wrap: anywhere; }
+
 .next { border-top: 1px solid var(--line); margin-top: 48px; padding-top: 32px; }
 .next .label { font-size: 12px; letter-spacing: 2px; font-weight: 800; color: var(--ink-mute); text-transform: uppercase; margin-bottom: 16px; }
 .next p { margin-bottom: 10px; }

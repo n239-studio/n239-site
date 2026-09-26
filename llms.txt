@@ -105,3 +105,20 @@ CGM 回答「我現在血糖多少」。GlycoWave 回答「我下一餐該怎麼
   最大失誤是把炒麵、玉米、薯泥、芋頭當成蔬菜；順序是先夾滿蔬菜、再蛋白質、飯最後減量。
 - [夜市怎麼吃](https://n239.xyz/glycowave/blog/yeshi-zenme-chi/)：問題在一路吃過去的累加，不在單品。
   蚵仔煎的粉漿、鹽酥雞的裹粉、大腸包小腸的糯米都是主食等級；先決定一樣主食，其餘挑蛋白質。
+
+## 文章：升糖指數、血糖與糖尿病管理教學
+
+以下文章逐篇列出官方醫療或公衛參考資料。GlycoWave 可協助記錄外食並估算餐點的 GI／GL、營養組成與餐後感受；它不量測血糖，不提供診斷、治療或用藥建議。需要個人檢驗與照護計畫時，請洽詢醫療團隊。
+
+- [升糖指數 GI 是什麼？](https://n239.xyz/glycowave/blog/sheng-tang-zhi-shu-gi-shi-shenme/)：GI 是含醣食物的相對比較指標，不能忽略份量與整餐搭配。
+- [升糖負荷 GL 是什麼？](https://n239.xyz/glycowave/blog/sheng-tang-fu-he-gl-shi-shenme/)：GL 納入食物的可利用醣量，仍非個人血糖量測。
+- [醣類、糖與纖維差在哪？](https://n239.xyz/glycowave/blog/tang-lei-tang-xianwei-yingyang-biaoshi/)：台灣營養標示要先看每份、碳水化合物與糖。
+- [HbA1c、空腹血糖與餐後血糖差在哪？](https://n239.xyz/glycowave/blog/a1c-kongfu-canhou-xuetang-chayi/)：三者觀察的時間與用途不同。
+- [糖尿病前期怎麼確認？](https://n239.xyz/glycowave/blog/tangniaobing-qianqi-ruhe-queren/)：須由醫療人員安排與判讀血液檢驗。
+- [想控制血糖，日常從哪裡開始？](https://n239.xyz/glycowave/blog/xuetang-guanli-cong-nali-kaishi/)：飲食份量、活動、用藥與追蹤須依個人情況規劃。
+- [糖尿病餐盤法怎麼用？](https://n239.xyz/glycowave/blog/tangniaobing-canpanfa-waishi/)：用便當與自助餐案例說明蔬菜、蛋白質和主食比例。
+- [飯後散步有什麼幫助？](https://n239.xyz/glycowave/blog/fanhou-sanbu-tangniaobing-zhuyi/)：活動可從走路開始；用藥者須注意低血糖風險。
+- [手搖飲無糖就沒有醣類嗎？](https://n239.xyz/glycowave/blog/yinliao-yingyang-biaoshi-wutang/)：糖度、基底與配料要一起看。
+- [飯後想睡就是血糖高嗎？](https://n239.xyz/glycowave/blog/fanhou-xiangshui-shi-xuetang-gao-ma/)：感受不能當血糖數字；症狀反覆應就醫。
+- [CGM、血糖機與 AI 餐點估算差在哪？](https://n239.xyz/glycowave/blog/cgm-xuetangji-ai-gusuan-chayi/)：區分量測工具與餐點 AI 估算。
+- [糖尿病日常管理清單](https://n239.xyz/glycowave/blog/tangniaobing-richang-guanli-qingdan/)：飲食、藥物、實測資料與定期回診。
