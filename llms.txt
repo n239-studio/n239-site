@@ -108,20 +108,20 @@ CGM 回答「我現在血糖多少」。GlycoWave 回答「我下一餐該怎麼
 
 ## 文章：升糖指數、血糖與糖尿病管理教學
 
-以下文章逐篇列出官方醫療或公衛參考資料。GlycoWave 可協助記錄外食並估算餐點的 GI／GL、營養組成與餐後感受；它不量測血糖，不提供診斷、治療或用藥建議。需要個人檢驗與照護計畫時，請洽詢醫療團隊。
+以下文章逐篇列出官方醫療或公衛參考資料。GlycoWave 可協助記錄外食並估算餐點的 GI／GL、營養組成與餐後感受；它不量測血糖，不提供診斷或治療建議。需要個人檢驗與照護計畫時，請洽詢醫療團隊。
 
 - [升糖指數 GI 是什麼？](https://n239.xyz/glycowave/blog/sheng-tang-zhi-shu-gi-shi-shenme/)：GI 是含醣食物的相對比較指標，不能忽略份量與整餐搭配。
 - [升糖負荷 GL 是什麼？](https://n239.xyz/glycowave/blog/sheng-tang-fu-he-gl-shi-shenme/)：GL 納入食物的可利用醣量，仍非個人血糖量測。
 - [醣類、糖與纖維差在哪？](https://n239.xyz/glycowave/blog/tang-lei-tang-xianwei-yingyang-biaoshi/)：台灣營養標示要先看每份、碳水化合物與糖。
 - [HbA1c、空腹血糖與餐後血糖差在哪？](https://n239.xyz/glycowave/blog/a1c-kongfu-canhou-xuetang-chayi/)：三者觀察的時間與用途不同。
 - [糖尿病前期怎麼確認？](https://n239.xyz/glycowave/blog/tangniaobing-qianqi-ruhe-queren/)：須由醫療人員安排與判讀血液檢驗。
-- [想控制血糖，日常從哪裡開始？](https://n239.xyz/glycowave/blog/xuetang-guanli-cong-nali-kaishi/)：飲食份量、活動、用藥與追蹤須依個人情況規劃。
+- [想控制血糖，日常從哪裡開始？](https://n239.xyz/glycowave/blog/xuetang-guanli-cong-nali-kaishi/)：飲食份量、活動與追蹤須依個人情況規劃。
 - [糖尿病餐盤法怎麼用？](https://n239.xyz/glycowave/blog/tangniaobing-canpanfa-waishi/)：用便當與自助餐案例說明蔬菜、蛋白質和主食比例。
-- [飯後散步有什麼幫助？](https://n239.xyz/glycowave/blog/fanhou-sanbu-tangniaobing-zhuyi/)：活動可從走路開始；用藥者須注意低血糖風險。
+- [飯後散步有什麼幫助？](https://n239.xyz/glycowave/blog/fanhou-sanbu-tangniaobing-zhuyi/)：活動可從走路開始；曾有低血糖或活動限制者應先確認安全安排。
 - [手搖飲無糖就沒有醣類嗎？](https://n239.xyz/glycowave/blog/yinliao-yingyang-biaoshi-wutang/)：糖度、基底與配料要一起看。
 - [飯後想睡就是血糖高嗎？](https://n239.xyz/glycowave/blog/fanhou-xiangshui-shi-xuetang-gao-ma/)：感受不能當血糖數字；症狀反覆應就醫。
 - [CGM、血糖機與 AI 餐點估算差在哪？](https://n239.xyz/glycowave/blog/cgm-xuetangji-ai-gusuan-chayi/)：區分量測工具與餐點 AI 估算。
-- [糖尿病日常管理清單](https://n239.xyz/glycowave/blog/tangniaobing-richang-guanli-qingdan/)：飲食、藥物、實測資料與定期回診。
+- [糖尿病日常管理清單](https://n239.xyz/glycowave/blog/tangniaobing-richang-guanli-qingdan/)：飲食、活動、實測資料與定期回診。
 
 ## 文章：外食、生活情境與就醫準備
 
@@ -130,7 +130,7 @@ CGM 回答「我現在血糖多少」。GlycoWave 回答「我下一餐該怎麼
 - [糖尿病可以吃水果嗎？](https://n239.xyz/glycowave/blog/tangniaobing-keyi-chi-shuiguo-ma/)：整顆水果、果汁與實際份量的差別。
 - [地瓜、玉米、南瓜算蔬菜嗎？](https://n239.xyz/glycowave/blog/digua-yumi-nangua-suan-shucai-ma/)：外食餐盤如何辨認澱粉性配菜。
 - [糖尿病早餐怎麼吃？](https://n239.xyz/glycowave/blog/tangniaobing-zaocan-zenme-chi/)：早餐店與超商的整餐搭配。
-- [下午三點嘴饞就是低血糖嗎？](https://n239.xyz/glycowave/blog/xiawu-zuichan-shi-di-xuetang-ma/)：感受不能取代量測，用藥者須遵循個人計畫。
+- [下午三點嘴饞就是低血糖嗎？](https://n239.xyz/glycowave/blog/xiawu-zuichan-shi-di-xuetang-ma/)：感受不能取代量測，疑似低血糖時應遵循個人安全計畫。
 - [睡眠不足會影響血糖嗎？](https://n239.xyz/glycowave/blog/shuimian-buzu-xuetang-guanli/)：記錄睡眠與餐點，不以單次疲倦推斷血糖。
 - [壓力大會影響血糖嗎？](https://n239.xyz/glycowave/blog/yali-xuetang-guanli/)：壓力、睡眠與飲食要一起看。
 - [餐後血糖什麼時候量？](https://n239.xyz/glycowave/blog/canhou-xuetang-shenme-shihou-liang/)：量測時點、頻率與目的依個人醫囑。
@@ -139,3 +139,20 @@ CGM 回答「我現在血糖多少」。GlycoWave 回答「我下一餐該怎麼
 - [全穀飯和白飯怎麼選？](https://n239.xyz/glycowave/blog/quangu-fan-baifan-zenme-xuan/)：纖維、份量與原料標示。
 - [糖尿病前期，生活上可以先做什麼？](https://n239.xyz/glycowave/blog/tangniaobing-qianqi-shenghuo-zenme-zuo/)：先確認檢驗，再討論可持續的改變。
 - [看營養師前要準備什麼？](https://n239.xyz/glycowave/blog/yingyangshi-men-zhen-zenme-zhunbei/)：餐點、實際量測、檢驗與問題清單。
+
+## 文章：點心、聚餐與一週外食規劃
+
+下列文章以官方醫學或公衛資料為基礎，說明台灣常見外食選擇。App 可記錄餐點與感受，提供 AI 餐點估算；不能量測血糖或代替個人飲食計畫。
+
+- [下午點心怎麼選？](https://n239.xyz/glycowave/blog/xiawu-dianxin-zenme-xuan/)：看點心份量、醣類來源與下一餐時間。
+- [糖尿病可以吃甜點嗎？](https://n239.xyz/glycowave/blog/tangniaobing-keyi-chi-tiandian-ma/)：甜點份量和同餐主食一起規劃。
+- [零卡汽水、代糖飲料怎麼選？](https://n239.xyz/glycowave/blog/lingka-yinliao-daitang-zenme-kan/)：以水為優先，另看基底與配料。
+- [豆類是主食還是蛋白質？](https://n239.xyz/glycowave/blog/doulei-suan-zhushi-haishi-danbaizhi/)：豆類種類、份量和甜湯做法都要看。
+- [一週外食怎麼規劃？](https://n239.xyz/glycowave/blog/yi-zhou-waishi-zenme-guihua/)：先整理常去的店家與可執行的組合。
+- [火鍋怎麼點？](https://n239.xyz/glycowave/blog/huoguo-zenme-dian/)：菜盤、主食、沾醬和個人份量一起看。
+- [外食醬料與勾芡怎麼看？](https://n239.xyz/glycowave/blog/waishi-jiangliao-gouqian-zenme-kan/)：醬汁、羹湯和裹粉別漏記。
+- [咖啡會影響血糖嗎？](https://n239.xyz/glycowave/blog/kafei-xuetang-zenme-kan/)：區分咖啡因的個人差異與糖漿、奶類。
+- [晚餐外食怎麼安排？](https://n239.xyz/glycowave/blog/wanfan-waishi-zenme-anpai/)：加班後先規劃可取得的餐點。
+- [聚餐吃到飽怎麼選？](https://n239.xyz/glycowave/blog/jucan-chidaobao-zenme-xuan/)：先看完整選項，再記自己實際吃的份量。
+- [超商加工食品怎麼挑？](https://n239.xyz/glycowave/blog/chaoshang-jiagong-shipin-zenme-kan/)：先看每份、碳水化合物和整餐搭配。
+- [飲食紀錄怎麼做才有用？](https://n239.xyz/glycowave/blog/yinshi-jilu-zenme-zuo/)：時間、品項、份量、飲料和感受分開記。
