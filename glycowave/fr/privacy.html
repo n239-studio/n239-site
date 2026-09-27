@@ -4,8 +4,12 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Politique de confidentialité — GlycoWave</title>
-<meta name="description" content="Politique de confidentialité de GlycoWave : vos repas enregistrés restent sur votre appareil, sans synchronisation de compte, et vous pouvez exporter vos données à tout moment."/>
+<meta name="description" content="Comment GlycoWave traite les repas enregistrés, les données HealthKit, les requêtes d'IA, les données d'utilisation et les abonnements."/>
 <link rel="canonical" href="https://n239.xyz/glycowave/fr/privacy.html"/>
+<link rel="alternate" hreflang="zh-Hant" href="https://n239.xyz/glycowave/privacy.html"/>
+<link rel="alternate" hreflang="en" href="https://n239.xyz/glycowave/en/privacy.html"/>
+<link rel="alternate" hreflang="fr" href="https://n239.xyz/glycowave/fr/privacy.html"/>
+<link rel="alternate" hreflang="x-default" href="https://n239.xyz/glycowave/privacy.html"/>
 <link rel="icon" href="../assets/appicon.png"/>
 <meta name="robots" content="index, follow"/>
 <meta property="og:type" content="article"/>
@@ -22,6 +26,9 @@
      Non appliqué aux liens en ligne dans le texte, pour ne pas casser l'interligne des paragraphes. */
   .back{font-size:13px;color:var(--ink-soft);text-decoration:none;display:inline-flex;align-items:center;min-height:44px;margin-bottom:12px;}
   .back:hover{color:var(--accent);}
+  .languages{display:flex;gap:16px;flex-wrap:wrap;margin:0 0 22px;font-size:13px;}
+  .languages a{color:var(--ink-soft);min-height:44px;display:inline-flex;align-items:center;}
+  .languages [aria-current="page"]{color:var(--ink);font-weight:700;text-decoration:none;}
   .eyebrow{font-size:11px;letter-spacing:2.4px;color:var(--accent);text-transform:uppercase;font-weight:700;margin-bottom:14px;}
   h1{font-size:30px;line-height:1.3;margin:0 0 8px;font-weight:700;}
   .updated{color:var(--ink-mute);font-size:13px;margin-bottom:36px;}
@@ -41,14 +48,18 @@
 </head>
 <body>
 <div class="stage">
-<a class="back" href="../index.html">← Retour à l'accueil</a>
-<a class="back" href="../privacy.html" hreflang="zh-Hant" style="margin-left:16px;">Version chinoise (traditionnelle)</a>
+<a class="back" href="../en/">← GlycoWave (site en anglais)</a>
+<nav class="languages" aria-label="Langue de la politique">
+  <a href="../privacy.html" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a>
+  <a href="../en/privacy.html" hreflang="en" lang="en">English</a>
+  <a href="./privacy.html" hreflang="fr" aria-current="page">Français</a>
+</nav>
 
 <div class="eyebrow">PRIVACY</div>
 <h1>Politique de confidentialité</h1>
-<div class="updated">Dernière mise à jour : 2 août 2026</div>
+<div class="updated">Dernière mise à jour : 27 septembre 2026</div>
 
-<p>Glycowave (ci-après « nous » ou « le Service ») respecte votre vie privée. La présente politique explique quelles données nous collectons, pourquoi, et comment nous les traitons.</p>
+<p>GlycoWave (ci-après « nous » ou « le Service ») respecte votre vie privée. La présente politique explique quelles données nous collectons, pourquoi, et comment nous les traitons.</p>
 
 <div class="toc">
 <strong>Sommaire</strong>
@@ -67,7 +78,7 @@
 <li><strong>Données saisies par l'utilisateur</strong> : photos de repas, descriptions textuelles, ressenti après le repas (énergie / faim)</li>
 <li><strong>Données personnelles</strong> : taille, poids, date de naissance, niveau d'activité, objectif de santé (renseignés par vous-même)</li>
 <li><strong>Données HealthKit</strong> : nombre de pas, distance de marche / course, étages montés, heures de sommeil et heures debout (lues uniquement après votre autorisation)</li>
-<li><strong>Données d'utilisation</strong> : événements d'utilisation des fonctionnalités et informations au niveau de l'appareil (via Firebase Analytics ; n'incluent ni les photos de repas, ni les textes, ni les données HealthKit)</li>
+<li><strong>Données d'utilisation et de diagnostic</strong> : événements liés aux fonctionnalités et informations sur l'appareil via Firebase Analytics et Crashlytics ; ces événements ne contiennent ni photos de repas, ni descriptions des repas, ni données HealthKit brutes</li>
 <li><strong>Informations d'abonnement</strong> : traitées via Apple StoreKit ; nous ne recevons pas les informations de votre carte bancaire</li>
 </ul>
 
@@ -75,7 +86,7 @@
 <ul>
 <li>Fournir l'analyse alimentaire par IA, estimer d'éventuels schémas de ressenti en milieu d'après-midi et proposer des suggestions pour le repas suivant</li>
 <li>Compter les pas de la marche après le repas, afin de déterminer si la mission de marche est accomplie</li>
-<li>Analyser l'utilisation des fonctionnalités et améliorer la qualité du Service</li>
+<li>Comprendre l'utilisation des fonctionnalités, diagnostiquer les erreurs et améliorer le Service</li>
 <li>Fournir l'abonnement et les fonctionnalités payantes</li>
 </ul>
 
@@ -90,42 +101,43 @@
 <h2 id="ai">4. Service d'IA (Google Gemini)</h2>
 <p>L'analyse des repas, le retour après le repas et les suggestions pour le repas suivant sont traités par Google Gemini, appelé via Firebase AI Logic. Votre consentement explicite est recueilli avant la première utilisation ; vous pouvez mettre fin aux envois ultérieurs de données vers l'IA dans les réglages de l'app. Les données déjà envoyées ne peuvent pas être récupérées ; après le retrait de votre consentement, vous pouvez toujours consulter vos enregistrements locaux.</p>
 <ul>
-<li>Contenu envoyé : photo ou texte du repas, ainsi que la région, l'objectif de santé, le ton de l'IA et le niveau de guidance que vous avez choisis, votre ressenti du moment et un résumé des repas de la journée</li>
+<li>Contenu envoyé : photo ou texte du repas, composition et portion indiquées, ainsi que la région, l'objectif de santé, le ton de l'IA, les préférences de conseils, votre ressenti et un résumé des repas de la journée utiles à la requête</li>
 <li>Non envoyé : votre nom, les données HealthKit brutes, les informations de paiement</li>
-<li>Pour le traitement par ce tiers, consultez les <a href="https://policies.google.com/privacy" target="_blank">Règles de confidentialité de Google</a></li>
+<li>Pour le traitement par ce tiers, consultez les <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Règles de confidentialité de Google</a></li>
 <li>Nous mettons en cache les résultats d'analyse sur votre appareil pendant 7 jours, afin d'éviter des envois en double</li>
 </ul>
 
 <h2 id="storage">5. Stockage des données</h2>
 <ul>
 <li><strong>Stockage local</strong> : repas enregistrés, historique de marche, données personnelles → SwiftData, stockés sur votre appareil ; état d'évolution du petit dinosaure (niveau, matériaux, équipement) → UserDefaults, également uniquement sur l'appareil</li>
-<li><strong>Cloud</strong> : aucune synchronisation de compte n'est proposée actuellement ; toutes les données restent sur l'appareil et sont effacées lors de la désinstallation</li>
+<li><strong>Traitement externe</strong> : après votre consentement, les données nécessaires à l'IA sont transmises à Google ; les données d'utilisation et de diagnostic sont traitées par Firebase. GlycoWave ne propose pas actuellement de synchronisation de compte</li>
 <li>Nous ne collectons ni votre position précise, ni vos contacts, ni l'ensemble de votre photothèque</li>
 </ul>
 
 <h2 id="share">6. Partage et tiers</h2>
 <p>Nous ne vendons pas vos données. Voici les services tiers, en nombre limité :</p>
 <ul>
-<li><strong>Firebase (Google)</strong> : Analytics, AI Logic — voir leur politique de confidentialité</li>
+<li><strong>Firebase (Google)</strong> : AI Logic, Analytics, Crashlytics et vérification de sécurité de l'app — voir leur politique de confidentialité</li>
 <li><strong>Apple</strong> : HealthKit, StoreKit, Speech Recognition — traités directement par Apple</li>
 </ul>
 
 <h2 id="rights">7. Vos droits</h2>
 <ul>
-<li><strong>Consultation / export</strong> : vous pouvez exporter un rapport PDF depuis l'app</li>
-<li><strong>Suppression</strong> : la désinstallation de l'app supprime toutes les données locales</li>
+<li><strong>Consultation / export</strong> : vous pouvez consulter vos enregistrements et exporter un rapport PDF ou un fichier CSV depuis l'app</li>
+<li><strong>Suppression</strong> : vous pouvez supprimer l'historique local dans l'app ou désinstaller l'app pour retirer ses données locales de cet appareil ; pour les données traitées par un prestataire, contactez-nous</li>
+<li><strong>Retrait du consentement à l'IA</strong> : vous pouvez arrêter les futurs transferts vers l'IA dans les réglages de l'app</li>
 <li><strong>Retrait de l'autorisation HealthKit</strong> : « Réglages → Confidentialité → Santé » du système</li>
 </ul>
 
 <h2>Avertissement santé et IA</h2>
-<p>Glycowave est un outil général de bien-être et d'habitudes de vie, et non un dispositif médical. Les valeurs d'IG/CG, les teneurs en nutriments, les réactions après le repas et les ressentis possibles sont tous des estimations produites par un modèle ; il ne s'agit pas de mesures par CGM, par glycémie capillaire, d'un étiquetage nutritionnel ni de mesures de laboratoire, et elles ne doivent pas être utilisées pour diagnostiquer, surveiller, traiter ou prévenir une maladie. N'ajustez pas vos médicaments ni votre plan de soins sur la base du Service.</p>
+<p>GlycoWave est une app de suivi des repas et de bien-être général, pas un dispositif médical. Les valeurs d'IG/CG, les teneurs en nutriments et les réactions possibles après le repas sont des estimations de l'IA, non des mesures de glycémie, des analyses de laboratoire ou un avis médical. Elles ne doivent pas servir à établir un diagnostic ou à traiter une maladie. Si vous avez besoin d'un avis médical personnalisé, consultez un professionnel de santé qualifié.</p>
 
 <h2 id="contact">8. Nous contacter</h2>
 <p>Une question sur la confidentialité ? Écrivez-nous à <a href="mailto:glycowave@n239.xyz">glycowave@n239.xyz</a></p>
 
 <hr/>
 <footer>
-<a href="../index.html">Accueil</a>
+<a href="../en/">GlycoWave (anglais)</a>
 <a href="./terms.html">Conditions d'utilisation</a>
 <p style="margin-top:18px;">© 2026 Glycowave.</p>
 </footer>

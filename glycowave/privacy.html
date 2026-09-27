@@ -4,8 +4,12 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>隱私政策 — GlycoWave</title>
-<meta name="description" content="GlycoWave 的隱私政策：餐點紀錄存在你的裝置上，不做帳號同步，資料可隨時匯出帶走。"/>
+<meta name="description" content="GlycoWave 隱私政策：本機餐點紀錄、AI 資料傳送、HealthKit、使用分析與訂閱資料如何處理。"/>
 <link rel="canonical" href="https://n239.xyz/glycowave/privacy.html"/>
+<link rel="alternate" hreflang="zh-Hant" href="https://n239.xyz/glycowave/privacy.html"/>
+<link rel="alternate" hreflang="en" href="https://n239.xyz/glycowave/en/privacy.html"/>
+<link rel="alternate" hreflang="fr" href="https://n239.xyz/glycowave/fr/privacy.html"/>
+<link rel="alternate" hreflang="x-default" href="https://n239.xyz/glycowave/privacy.html"/>
 <link rel="icon" href="./assets/appicon.png"/>
 <meta name="robots" content="index, follow"/>
 <meta property="og:type" content="article"/>
@@ -22,6 +26,9 @@
      內文中的行內連結不套用，避免破壞段落行距。 */
   .back{font-size:13px;color:var(--ink-soft);text-decoration:none;display:inline-flex;align-items:center;min-height:44px;margin-bottom:12px;}
   .back:hover{color:var(--accent);}
+  .languages{display:flex;gap:16px;flex-wrap:wrap;margin:0 0 22px;font-size:13px;}
+  .languages a{color:var(--ink-soft);min-height:44px;display:inline-flex;align-items:center;}
+  .languages [aria-current="page"]{color:var(--ink);font-weight:700;text-decoration:none;}
   .eyebrow{font-size:11px;letter-spacing:2.4px;color:var(--accent);text-transform:uppercase;font-weight:700;margin-bottom:14px;}
   h1{font-size:30px;line-height:1.3;margin:0 0 8px;font-weight:700;}
   .updated{color:var(--ink-mute);font-size:13px;margin-bottom:36px;}
@@ -42,10 +49,15 @@
 <body>
 <div class="stage">
 <a class="back" href="./index.html">← 回首頁</a>
+<nav class="languages" aria-label="政策語言">
+  <a href="./privacy.html" hreflang="zh-Hant" aria-current="page">繁體中文</a>
+  <a href="./en/privacy.html" hreflang="en" lang="en">English</a>
+  <a href="./fr/privacy.html" hreflang="fr" lang="fr">Français</a>
+</nav>
 
 <div class="eyebrow">PRIVACY</div>
 <h1>隱私政策</h1>
-<div class="updated">最後更新：2026 年 8 月 2 日</div>
+<div class="updated">最後更新：2026 年 9 月 27 日</div>
 
 <p>Glycowave（以下稱「我們」、「本服務」）尊重你的隱私。本政策說明我們收集什麼、為什麼、如何處理。</p>
 
@@ -66,7 +78,7 @@
 <li><strong>使用者輸入</strong>：餐點照片、文字描述、餐後感受（精神／飢餓）</li>
 <li><strong>個人資料</strong>：身高、體重、生日、活動量、健康目標（你主動填寫）</li>
 <li><strong>HealthKit 資料</strong>：步數、步行／跑步距離、爬樓層、睡眠與站立時數（僅在你授權後讀取）</li>
-<li><strong>使用行為</strong>：功能使用事件與裝置層級資訊（透過 Firebase Analytics；不包含餐點照片、文字或 HealthKit 資料）</li>
+<li><strong>使用與診斷資料</strong>：透過 Firebase Analytics 與 Crashlytics 處理功能使用事件和裝置層級資訊；分析事件不包含餐點照片、文字或 HealthKit 原始資料</li>
 <li><strong>訂閱資訊</strong>：透過 Apple StoreKit 處理；我們不會收到你的信用卡資訊</li>
 </ul>
 
@@ -74,7 +86,7 @@
 <ul>
 <li>提供 AI 飲食分析、估算可能的午後感受模式、給下一餐建議</li>
 <li>計算飯後散步的步數，作為散步任務完成與否的依據</li>
-<li>分析功能使用情形並改善服務品質</li>
+<li>分析功能使用情形、診斷錯誤並改善服務品質</li>
 <li>提供訂閱與付費功能</li>
 </ul>
 
@@ -89,35 +101,36 @@
 <h2 id="ai">4. AI 服務（Google Gemini）</h2>
 <p>餐點分析、餐後回饋與下一餐建議透過 Firebase AI Logic 呼叫 Google Gemini 處理。首次使用前會取得明確同意；你可以在 App 設定中停止後續 AI 資料傳送。已送出的資料無法撤回，撤回同意後仍可查看本機紀錄。</p>
 <ul>
-<li>傳送內容：餐點照片或文字，以及你選擇的地區、健康目標、AI 語氣、指引強度、當下感受與當日餐點摘要</li>
+<li>傳送內容：餐點照片或文字、餐點組成與份量，以及與該次分析相關的地區、健康目標、AI 語氣、指引強度、當下感受與當日餐點摘要</li>
 <li>不會傳送：你的姓名、HealthKit 原始資料、付款資訊</li>
-<li>第三方處理方式請見 <a href="https://policies.google.com/privacy" target="_blank">Google 隱私政策</a></li>
+<li>第三方處理方式請見 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google 隱私政策</a></li>
 <li>我們會快取分析結果在你裝置 7 天，避免重複送出</li>
 </ul>
 
 <h2 id="storage">5. 資料儲存</h2>
 <ul>
 <li><strong>本機儲存</strong>：餐點記錄、散步紀錄、個人資料 → SwiftData 儲存在你的裝置；小恐龍養成狀態（等級、素材、裝備）→ UserDefaults，同樣只在裝置上</li>
-<li><strong>雲端</strong>：目前不提供帳號同步，所有資料留在裝置上；解除安裝即清除</li>
+<li><strong>外部處理</strong>：取得同意後，AI 輸入會傳給 Google；使用與診斷資料由 Firebase 處理。這與帳號同步不同；GlycoWave 目前不提供帳號同步</li>
 <li>我們不會收集精確位置、聯絡人、相簿全集</li>
 </ul>
 
 <h2 id="share">6. 分享與第三方</h2>
 <p>我們不會販賣你的資料。以下是有限的第三方服務：</p>
 <ul>
-<li><strong>Firebase（Google）</strong>：Analytics、AI Logic — 詳見其隱私政策</li>
+<li><strong>Firebase（Google）</strong>：AI Logic、Analytics、Crashlytics 與 App 安全驗證——詳見其隱私政策</li>
 <li><strong>Apple</strong>：HealthKit、StoreKit、Speech Recognition — 由 Apple 直接處理</li>
 </ul>
 
 <h2 id="rights">7. 你的權利</h2>
 <ul>
-<li><strong>查看／匯出</strong>：app 內可匯出 PDF 報表</li>
-<li><strong>刪除</strong>：解除安裝 app 即刪除所有本機資料</li>
+<li><strong>查看／匯出</strong>：app 內可查看紀錄、匯出 PDF 報表或 CSV 檔案</li>
+<li><strong>刪除</strong>：可在 app 內刪除本機飲食紀錄，或解除安裝 app 以移除該裝置上的本機資料；若對第三方處理的資料有疑問，可來信詢問</li>
+<li><strong>撤回 AI 同意</strong>：可在 app 設定中停止後續 AI 資料傳送</li>
 <li><strong>撤回 HealthKit 授權</strong>：系統「設定 → 隱私 → 健康」</li>
 </ul>
 
 <h2>健康與 AI 聲明</h2>
-<p>Glycowave 是一般健康與生活習慣工具，不是醫療器材。GI/GL、營養素含量、餐後反應與可能感受均為模型估算，不是 CGM、指尖血糖、營養標示或實驗室測量，也不得用於診斷、監測、治療或預防疾病。請勿依據本服務調整藥物或照護計畫。</p>
+<p>GlycoWave 是一般健康與飲食紀錄工具，不是醫療器材。GI/GL、營養素含量與可能的餐後反應均為 AI 估算，不是血糖數值、營養標示或實驗室測量，也不能作為診斷或治療依據。需要個人化醫療判斷時，請洽醫師或營養師。</p>
 
 <h2 id="contact">8. 聯絡我們</h2>
 <p>對隱私有疑問？來信 <a href="mailto:glycowave@n239.xyz">glycowave@n239.xyz</a></p>

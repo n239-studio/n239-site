@@ -6,6 +6,10 @@
 <title>Conditions d'utilisation — GlycoWave</title>
 <meta name="description" content="Conditions d'utilisation de GlycoWave : formules d'abonnement, nature et limites des estimations par IA, et avertissement santé."/>
 <link rel="canonical" href="https://n239.xyz/glycowave/fr/terms.html"/>
+<link rel="alternate" hreflang="zh-Hant" href="https://n239.xyz/glycowave/terms.html"/>
+<link rel="alternate" hreflang="en" href="https://n239.xyz/glycowave/en/terms.html"/>
+<link rel="alternate" hreflang="fr" href="https://n239.xyz/glycowave/fr/terms.html"/>
+<link rel="alternate" hreflang="x-default" href="https://n239.xyz/glycowave/terms.html"/>
 <link rel="icon" href="../assets/appicon.png"/>
 <meta name="robots" content="index, follow"/>
 <meta property="og:type" content="article"/>
@@ -22,6 +26,9 @@
      Non appliqué aux liens en ligne dans le texte, pour ne pas casser l'interligne des paragraphes. */
   .back{font-size:13px;color:var(--ink-soft);text-decoration:none;display:inline-flex;align-items:center;min-height:44px;margin-bottom:12px;}
   .back:hover{color:var(--accent);}
+  .languages{display:flex;gap:16px;flex-wrap:wrap;margin:0 0 22px;font-size:13px;}
+  .languages a{color:var(--ink-soft);min-height:44px;display:inline-flex;align-items:center;}
+  .languages [aria-current="page"]{color:var(--ink);font-weight:700;text-decoration:none;}
   .eyebrow{font-size:11px;letter-spacing:2.4px;color:var(--accent);text-transform:uppercase;font-weight:700;margin-bottom:14px;}
   h1{font-size:30px;line-height:1.3;margin:0 0 8px;font-weight:700;}
   .updated{color:var(--ink-mute);font-size:13px;margin-bottom:36px;}
@@ -39,12 +46,16 @@
 </head>
 <body>
 <div class="stage">
-<a class="back" href="../index.html">← Retour à l'accueil</a>
-<a class="back" href="../terms.html" hreflang="zh-Hant" style="margin-left:16px;">Version chinoise (traditionnelle)</a>
+<a class="back" href="../en/">← GlycoWave (site en anglais)</a>
+<nav class="languages" aria-label="Langue des conditions">
+  <a href="../terms.html" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a>
+  <a href="../en/terms.html" hreflang="en" lang="en">English</a>
+  <a href="./terms.html" hreflang="fr" aria-current="page">Français</a>
+</nav>
 
 <div class="eyebrow">TERMS OF SERVICE</div>
 <h1>Conditions d'utilisation</h1>
-<div class="updated">Dernière mise à jour : 25 avril 2026</div>
+<div class="updated">Dernière mise à jour : 27 septembre 2026</div>
 
 <p>Bienvenue sur Glycowave (« le Service »). En téléchargeant, installant ou utilisant cette app, vous acceptez les conditions ci-dessous. Si vous ne les acceptez pas, veuillez ne pas l'utiliser.</p>
 
@@ -64,8 +75,8 @@ Les suggestions alimentaires, valeurs d'IG/CG, teneurs en nutriments et réactio
 
 <h2>2. Compte et conditions d'éligibilité</h2>
 <ul>
-<li>L'utilisateur doit être âgé d'au moins 13 ans (ou de l'âge minimum légal applicable là où il se trouve)</li>
-<li>Cette app ne nécessite actuellement pas de création de compte ; toutes les données sont stockées localement sur l'appareil</li>
+<li>L'utilisateur doit être âgé d'au moins 13 ans, ou avoir atteint l'âge minimum plus élevé exigé là où il réside. Lorsque la loi l'exige, un parent ou tuteur doit autoriser l'utilisation par un mineur</li>
+<li>Cette app ne nécessite actuellement pas de compte. Les repas enregistrés et les données du profil sont stockés sur l'appareil ; les données nécessaires à l'analyse par IA ne sont transmises à Google qu'après le consentement décrit dans la <a href="./privacy.html">Politique de confidentialité</a></li>
 <li>Il vous incombe d'assurer la sécurité de votre appareil, de votre réseau et de votre identifiant Apple</li>
 </ul>
 
@@ -73,15 +84,14 @@ Les suggestions alimentaires, valeurs d'IG/CG, teneurs en nutriments et réactio
 <ul>
 <li>L'abonnement s'effectue via l'App Store d'Apple ; le paiement est traité par Apple</li>
 <li>À la première ouverture de l'app, un essai de 3 jours des suggestions pour le repas suivant est proposé, décompté en jours calendaires de l'appareil ; cet essai n'inclut pas l'ensemble des avantages Pro et ne crée ni abonnement ni prélèvement automatique. Tout abonnement payant doit être confirmé séparément par vous via Apple</li>
-<li>L'abonnement est renouvelé automatiquement 24 heures avant son expiration, sauf s'il est résilié au préalable</li>
-<li>Pour résilier : « Réglages → Identifiant Apple → Abonnements » sur votre iPhone</li>
-<li>Les montants déjà prélevés ne sont pas remboursés (sauf si la réglementation locale l'exige)</li>
+<li>Les abonnements payants se renouvellent automatiquement sauf résiliation. Vous pouvez les gérer ou les résilier dans « Réglages → Compte Apple → Abonnements » sur votre iPhone</li>
+<li>Les demandes de remboursement d'achats App Store sont traitées par Apple selon sa procédure et la loi applicable</li>
 </ul>
 
 <h2>4. Avertissement médical</h2>
 <ul>
-<li>Le Service <strong>n'est pas un dispositif médical</strong> et n'a été certifié ni par la FDA, ni par la TFDA, ni par aucune autorité de réglementation médicale</li>
-<li>Les prédictions de l'IA comportent une marge d'erreur et ne doivent pas servir de seul fondement à des décisions alimentaires ou médicamenteuses</li>
+<li>Le Service <strong>n'est pas un dispositif médical</strong>, ne mesure pas la glycémie et ne remplace ni un lecteur de glycémie ni un CGM</li>
+<li>Les estimations de l'IA peuvent être inexactes et ne constituent pas un avis médical personnalisé</li>
 <li>Les utilisateurs atteints de prédiabète / de diabète doivent continuer à suivre les recommandations médicales</li>
 <li>En cas de symptômes aigus (hypoglycémie, malaise), consultez immédiatement un médecin</li>
 </ul>
@@ -89,8 +99,8 @@ Les suggestions alimentaires, valeurs d'IG/CG, teneurs en nutriments et réactio
 <h2>5. Propriété du contenu</h2>
 <ul>
 <li>Vous conservez la propriété du contenu que vous saisissez (photos de repas, textes, ressentis)</li>
-<li>Vous nous autorisez à traiter ce contenu sur l'appareil afin de fournir le Service</li>
-<li>L'app elle-même, son design et ses marques appartiennent à Glycowave</li>
+<li>Vous autorisez l'app à traiter ce contenu sur votre appareil pour fournir le Service et, après votre consentement explicite à l'IA, à transmettre les données utiles à Google Gemini pour analyse</li>
+<li>L'app, son design et ses marques appartiennent à n239 ou à ses concédants de licence</li>
 </ul>
 
 <h2>6. Comportements interdits</h2>
@@ -104,11 +114,11 @@ Les suggestions alimentaires, valeurs d'IG/CG, teneurs en nutriments et réactio
 <ul>
 <li>Nous pouvons suspendre le Service pour des raisons telles que la maintenance, les mises à jour ou des limites de quota</li>
 <li>Hors connexion, vous pouvez utiliser la base de données d'IG locale (intégrée à l'app) pour des estimations de base</li>
-<li>Nous pouvons modifier les fonctionnalités, les tarifs et l'interface sans préavis</li>
+<li>Les fonctionnalités, les prix et l'interface peuvent changer. Apple affiche le prix d'un abonnement avant la confirmation de l'achat</li>
 </ul>
 
 <h2>8. Limitation de responsabilité</h2>
-<p>Dans la mesure permise par la loi, nous déclinons toute responsabilité pour les dommages directs, indirects ou accessoires résultant de l'utilisation du Service. Le Service est fourni « en l'état », sans garantie que les résultats d'analyse de l'IA soient entièrement exacts.</p>
+<p>Le Service est fourni selon sa disponibilité et l'analyse par IA peut être incomplète ou erronée. Dans la mesure permise par la loi applicable, n239 ne garantit ni un accès ininterrompu ni l'exactitude des estimations. Ces conditions ne limitent pas les droits qui ne peuvent légalement être exclus.</p>
 
 <h2>9. Modification des conditions</h2>
 <p>Les présentes conditions peuvent être mises à jour. Toute modification importante sera notifiée dans l'app. La poursuite de l'utilisation vaut acceptation des nouvelles conditions.</p>
@@ -118,7 +128,7 @@ Les suggestions alimentaires, valeurs d'IG/CG, teneurs en nutriments et réactio
 
 <hr/>
 <footer>
-<a href="../index.html">Accueil</a>
+<a href="../en/">GlycoWave (anglais)</a>
 <a href="./privacy.html">Politique de confidentialité</a>
 <p style="margin-top:18px;">© 2026 Glycowave.</p>
 </footer>
