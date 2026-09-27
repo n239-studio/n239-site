@@ -1,13 +1,13 @@
 # n239 / GlycoWave
 
-> GlycoWave 是給「不想戴 CGM 的台灣外食族」的替代方案：不量測血糖，改用 AI
-> 從餐點內容推估這一餐的血糖衝擊與餐後反應，並給出下一餐的調整建議。
+> GlycoWave 是給台灣外食族使用的 iOS 飲食紀錄與分析 App；不量測血糖，
+> 也不是 CGM 的替代品。它用 AI 從餐點內容估算組成與可能的餐後感受。
 > iOS app，開發者是台灣獨立工作室 n239。
 >
-> GlycoWave is an alternative for people who want to eat better without wearing a CGM.
-> It does not measure blood glucose. It reads the meal — from a photo, text or voice note —
-> and estimates that meal's glucose impact and how it may land, then suggests one
-> adjustment for the next meal. iOS. Built by n239, an independent studio in Taiwan.
+> GlycoWave is an iOS meal logging app for people who eat out in Taiwan.
+> It does not measure blood glucose or replace a CGM. From a photo, text or voice note, it estimates
+> the meal's composition, GI/GL, and possible post-meal feelings, then suggests one
+> adjustment for the next meal. These are AI estimates, not glucose readings. Built by n239 in Taiwan.
 
 聯絡 / Contact: glycowave@n239.xyz
 
@@ -65,50 +65,35 @@ CGM 回答「我現在血糖多少」。GlycoWave 回答「我下一餐該怎麼
 
 ## 頁面 / Pages
 
-- [不用 CGM 怎麼知道血糖？](https://n239.xyz/glycowave/no-cgm/)：為什麼不量測就沒有血糖數值、
-  CGM 與免儀器餐點估算的完整對照表、不量血糖的話該改看什麼、台灣外食情境、FAQ。
+- [不用 CGM，也能管理外食選擇嗎？](https://n239.xyz/glycowave/no-cgm/)：先分清 CGM／血糖機的量測資料與餐點 AI 估算。
 - [GlycoWave 官網（繁體中文）](https://n239.xyz/glycowave/)：產品介紹、使用流程、功能列表、常見問題。
 - [GlycoWave official site (English)](https://n239.xyz/glycowave/en/): product overview, how it works, features, FAQ.
 - [n239 工作室首頁](https://n239.xyz/)：工作室與作品列表。
+- [內容整理方式](https://n239.xyz/glycowave/editorial.html)：資料選用、台灣外食範例與產品限制。
 - [隱私政策 / Privacy Policy](https://n239.xyz/glycowave/privacy.html)
 - [使用條款 / Terms of Use](https://n239.xyz/glycowave/terms.html)
 
-## 文章：台灣外食餐點對照
+## 文章：台灣外食餐點對照與場景
 
-每篇都附對照表、三個可執行的調整，以及健康聲明。全部以台灣外食為情境。
+以下 12 篇已補上官方參考資料。餐點比較只說明組成與份量的觀察方式，不推定特定料理或個人的實測血糖。
 
 - [文章列表](https://n239.xyz/glycowave/blog/)
-- [滷肉飯 vs 雞肉飯](https://n239.xyz/glycowave/blog/luroufan-vs-jiroufan/)：兩碗都以白飯為主體，
-  差距比一般認知小；雞肉飯較精瘦，但少了油脂延緩胃排空，吸收不見得比較慢。決定性因素是飯量與配菜。
-- [牛肉麵 vs 拉麵](https://n239.xyz/glycowave/blog/niuroumian-vs-ramen/)：一碗麵的澱粉量常超過一碗白飯；
-  牛肉麵的蛋白質通常較實在。湯的主要問題是鈉與油脂，不是血糖。
-- [水餃 vs 鍋貼](https://n239.xyz/glycowave/blog/shuijiao-vs-guotie/)：餡料相同，差別在水煮與油煎；
-  鍋貼油脂高但澱粉量相近，十顆的澱粉約等於一碗白飯。配的酸辣湯與玉米濃湯都是勾芡。
-- [白飯 vs 糙米飯](https://n239.xyz/glycowave/blog/baifan-vs-caomifan/)：少數差異真的明顯的一組；
-  糙米保留麩皮與胚芽，纖維多、吸收較慢。但份量仍是決定性的，換米種不等於可以多吃。
-- [珍珠奶茶 vs 純茶](https://n239.xyz/glycowave/blog/zhenzhu-naicha-vs-cha/)：差距最大的一組；
-  珍珠是木薯澱粉且常浸糖漿，液體糖吸收特別快。「半糖」各店標準不一，不等於糖量減半。
-- [超商御飯糰 vs 三明治](https://n239.xyz/glycowave/blog/fantuan-vs-sandwich/)：兩者主體都是精製澱粉，
-  差距不大；關鍵在有沒有另外補一份蛋白質（茶葉蛋、無糖豆漿）。
-
-## 文章：台灣外食場景
-
-- [便當怎麼吃？問題幾乎都在飯量](https://n239.xyz/glycowave/blog/biandang-zenme-chi/)：一個便當的飯常是一碗半到兩碗，
-  飯量的影響大於主菜選擇；裹粉與糖醋醬是隱形澱粉；配菜格的炒麵、玉米、薯泥都是澱粉不是蔬菜。
-- [超商可以買什麼](https://n239.xyz/glycowave/blog/chaoshang-kongtang/)：原則是一份主食加一份蛋白質加無糖飲料。
-  地瓜玉米南瓜屬澱粉不是蔬菜；關東煮的米血、甜不辣、黑輪也是澱粉。
-- [手搖飲怎麼點](https://n239.xyz/glycowave/blog/shouyao-zenme-dian/)：照糖度、配料、基底的順序調，一次一項。
-  半糖各店基準不同，不等於糖量減半；珍珠、芋圓、布丁是澱粉或糖，寒天仙草愛玉較低。
-- [台式早餐店怎麼點](https://n239.xyz/glycowave/blog/zaocandian-zenme-dian/)：經典組合多為澱粉配糖水。
-  米漿是米加糖加花生的澱粉類甜飲，不是豆漿的同類；燒餅油條是麵粉夾油炸麵粉。
-- [自助餐怎麼夾](https://n239.xyz/glycowave/blog/zizhucan-jiacai/)：最可控的外食場景。
-  最大失誤是把炒麵、玉米、薯泥、芋頭當成蔬菜；順序是先夾滿蔬菜、再蛋白質、飯最後減量。
-- [夜市怎麼吃](https://n239.xyz/glycowave/blog/yeshi-zenme-chi/)：問題在一路吃過去的累加，不在單品。
-  蚵仔煎的粉漿、鹽酥雞的裹粉、大腸包小腸的糯米都是主食等級；先決定一樣主食，其餘挑蛋白質。
+- [滷肉飯 vs 雞肉飯：先比飯量，再看配菜](https://n239.xyz/glycowave/blog/luroufan-vs-jiroufan/)：滷肉飯和雞肉飯通常都有白飯，但各店的飯量、肉燥、雞肉與醬汁不同。只憑菜名不能判定哪碗讓個人血糖變化較大；先看整餐的主食份量與配菜。
+- [牛肉麵 vs 拉麵：麵量、配料與湯怎麼看？](https://n239.xyz/glycowave/blog/niuroumian-vs-ramen/)：牛肉麵與拉麵都以麵條為主食，實際麵量、肉類、蔬菜與湯頭差異很大。比較時先看整碗吃進了什麼，不要用料理名稱推定個人的血糖反應。
+- [水餃 vs 鍋貼：顆數與配餐比煮法更值得先看](https://n239.xyz/glycowave/blog/shuijiao-vs-guotie/)：水餃與鍋貼的皮都提供醣類，內餡和烹調用油則依店家不同。先看吃了幾顆、是否另配麵食或飲料；無法只憑水煮或煎的方式判定個人血糖反應。
+- [白飯 vs 糙米飯：纖維差異與份量怎麼看？](https://n239.xyz/glycowave/blog/baifan-vs-caomifan/)：糙米保留較多全穀成分，白飯與糙米仍都屬含醣主食。挑選時可比較纖維與實際飯量；換成糙米也不能跳過份量或據此推定自己的餐後血糖。
+- [珍珠奶茶 vs 純茶：糖度、配料與杯量怎麼比？](https://n239.xyz/glycowave/blog/zhenzhu-naicha-vs-cha/)：無糖純茶與加入糖、奶類及珍珠的飲料，成分可能差很多。珍珠是含醣配料；選飲料時要把糖度、配料與杯量一起看，不能只憑品名估出確切醣量。
+- [超商御飯糰 vs 三明治：午餐怎麼搭比較完整？](https://n239.xyz/glycowave/blog/fantuan-vs-sandwich/)：御飯糰與三明治都有穀物主食，內餡、醬料和份量則因產品而異。選午餐時讀標示，再看蔬菜、蛋白質與飲料是否齊全；不能只靠品名替兩款商品排血糖名次。
+- [便當怎麼吃？從主食、配菜與飲料看整餐](https://n239.xyz/glycowave/blog/biandang-zenme-chi/)：便當的飯、主菜、配菜和飲料是一整餐；有地瓜、玉米或勾芡配菜時，也要留意它們的組成。先看份量與搭配，再決定要調整哪一項，不能靠照片得知個人血糖值。
+- [超商選餐怎麼搭？先讀標示，再看整餐](https://n239.xyz/glycowave/blog/chaoshang-kongtang/)：超商能自由組合主食、蛋白質、蔬菜與飲料，也方便核對營養標示。先確認每份與整包份數，再看整餐組成；『高蛋白』『無糖』等正面文字不能代替完整標示。
+- [手搖飲怎麼點？把糖度、配料與杯量一起看](https://n239.xyz/glycowave/blog/shouyao-zenme-dian/)：手搖飲的醣類可能來自另加的糖、珍珠、果醬或奶類。點單時同時確認糖度、配料與杯量；只說『半糖』或『無糖』，還不足以描述整杯飲料。
+- [台式早餐店怎麼點？把主食與飲料一起選](https://n239.xyz/glycowave/blog/zaocandian-zenme-dian/)：蛋餅、吐司、飯糰與奶茶的成分和份量各店不同。點早餐時先看主食，再看蛋、豆製品、蔬菜與飲料；不要只憑『早餐』這個類別推定餐後感受。
+- [自助餐怎麼夾？先分清蔬菜與含醣配菜](https://n239.xyz/glycowave/blog/zizhucan-jiacai/)：自助餐能自己決定飯、菜與主菜，但玉米、地瓜、馬鈴薯和勾芡料理也要納入整餐。先看盤子裡的主食、非澱粉蔬菜與蛋白質，再調整份量。
+- [夜市怎麼吃？把分次購買的食物算成一餐](https://n239.xyz/glycowave/blog/yeshi-zenme-chi/)：夜市常邊走邊選，鹹食、點心與飲料可能分次買。先回想這一趟吃了哪些主食、配料與飲料，再看整餐搭配；不能只憑單一攤位判定餐後反應。
 
 ## 文章：升糖指數、血糖與糖尿病管理教學
 
-以下文章逐篇列出官方醫療或公衛參考資料。GlycoWave 可協助記錄外食並估算餐點的 GI／GL、營養組成與餐後感受；它不量測血糖，不提供診斷或治療建議。需要個人檢驗與照護計畫時，請洽詢醫療團隊。
+以下教學文章也逐篇列出官方醫療或公衛參考資料。GlycoWave 可協助記錄外食並估算餐點的 GI／GL、營養組成與餐後感受；它不量測血糖，不提供診斷或治療建議。需要個人檢驗與照護計畫時，請洽詢醫療團隊。
 
 - [升糖指數 GI 是什麼？](https://n239.xyz/glycowave/blog/sheng-tang-zhi-shu-gi-shi-shenme/)：GI 是含醣食物的相對比較指標，不能忽略份量與整餐搭配。
 - [升糖負荷 GL 是什麼？](https://n239.xyz/glycowave/blog/sheng-tang-fu-he-gl-shi-shenme/)：GL 納入食物的可利用醣量，仍非個人血糖量測。

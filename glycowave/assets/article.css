@@ -59,6 +59,7 @@ h1 {
   padding: 20px 24px; background: var(--wash); border-radius: 16px;
 }
 .meta { font-size: 13.5px; color: var(--ink-mute); margin: 18px 0 0; }
+.meta a { color: inherit; text-underline-offset: 3px; }
 
 /* ── 內文 ── */
 article { padding: 8px 0 24px; }
@@ -129,6 +130,11 @@ td { color: var(--ink-soft); }
 .next p { margin-bottom: 10px; }
 
 /* ── 文章列表 ── */
+.topic-nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; padding: 12px 0 0; }
+.topic-nav a { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 18px; border: 1px solid var(--line); border-radius: 14px; text-decoration: none; font-size: 15px; font-weight: 700; }
+.topic-nav a:hover { background: var(--wash); }
+.topic-nav span { color: var(--ink-mute); font-size: 13px; font-weight: 500; white-space: nowrap; }
+@media (max-width: 640px) { .topic-nav { grid-template-columns: 1fr; } }
 .list { display: grid; gap: 14px; margin: 0 0 8px; padding: 0; list-style: none; }
 .list a {
   display: block; padding: 22px 26px; border: 1px solid var(--line); border-radius: 18px;
